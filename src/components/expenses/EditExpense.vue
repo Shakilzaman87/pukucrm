@@ -1,0 +1,133 @@
+<template>
+  <v-app>
+
+      <Navbar/>
+      <v-content>
+
+        <form @submit.prevent="editExpense">
+        <v-card>
+          <v-card-title
+            class="grey lighten-4 py-4 center"
+          >
+            <h2>Edit Expense Information</h2>
+          </v-card-title>
+          <v-container grid-list-sm class="pa-4">
+            <v-layout row wrap>
+
+              <v-flex xs10 align-center justify-space-between>
+                <v-layout align-center>
+                  <v-text-field
+                    prepend-icon="face"
+                    placeholder="Expense title"
+                    required
+                    v-model="expense.expense_title"
+                  ></v-text-field>
+                </v-layout>
+              </v-flex>
+
+              <v-flex xs10 align-center justify-space-between>
+                <v-layout align-center>
+                  <v-text-field
+                    type="number"
+                    prepend-icon="face"
+                    placeholder="Expense Amount"
+                    required
+                    v-model="expense.expense_amount"
+                  ></v-text-field>
+                </v-layout>
+              </v-flex>
+
+              <v-flex xs10>
+                <v-select
+                  prepend-icon="group"
+                  :items="expense_types"
+                  v-model="expense.expense_type"
+                  label="Expense Type"
+                  single-line
+                ></v-select>
+              </v-flex>
+
+              <v-flex xs10>
+                <v-btn type="submit" block color="primary" dark>Edit Expense</v-btn>
+              </v-flex>
+
+
+            </v-layout>
+          </v-container>
+
+        </v-card>
+        </form>
+
+
+      </v-content>
+  </v-app>
+</template>
+
+<script>
+import Navbar from '@/components/navbar/Navbar'
+import db from '@/firebase/init'
+import moment from 'moment'
+export default {
+  name:'EditExpenses',
+  components:{
+    Navbar
+  },
+  data(){
+    return{
+      expense:[],
+      expense_title:null,
+      expense_amount:null,
+      expense_type:null,
+      expense_types: [
+        { id: 1, text: 'Transportation' },
+        { id: 2, text: 'IT & Internet' },
+        { id: 3, text: 'Telephone' },
+        { id: 4, text: 'Food & Entertainment' },
+        { id: 5, text: 'Office' },
+        { id: 6, text: 'Travel' },
+        { id: 7, text: 'Customer' },
+        { id: 8, text: 'Others' },
+      ],
+    }
+  },
+  methods:{
+      editExpense(){
+          if(this.expense.expense_title){
+
+          let ref = db.collection('expenses').doc(this.$route.params.id);
+            ref.update({
+              expense_title:this.expense.expense_title,
+              expense_amount:this.expense.expense_amount,
+              expense_type:this.expense.expense_type,
+            })
+            this.expense_title=null
+            this.expense_amount=null
+            this.expense_type=null
+          }
+          this.$router.push({ name: 'Expenses'})
+      },
+   },
+   created(){
+       // Show data of a specific Expense
+       db.collection("expenses").doc(this.$route.params.id).onSnapshot(doc =>{
+          this.expense = doc.data()
+          this.expense.id = doc.id
+       })
+   }
+
+}
+</script>
+
+<style>
+form{
+  margin-left: 12%;
+}
+h2{
+  font-weight: lighter;
+  margin-left: 5%;
+  color: rgba(0,0,0,.54);
+}
+input::placeholder{
+  color: rgba(0,0,0,.87);
+}
+</style>

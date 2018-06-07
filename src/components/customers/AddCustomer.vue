@@ -17,19 +17,19 @@
               <v-flex xs10 align-center justify-space-between>
                 <v-layout align-center>
                   <v-text-field
+                    required
                     prepend-icon="face"
                     placeholder="Customer Name"
-                    required
                     v-model="customer_name"
                   ></v-text-field>
                 </v-layout>
               </v-flex>
               <v-flex xs10>
                 <v-text-field
+                  required
                   type="email"
                   prepend-icon="mail"
                   placeholder="Email"
-                  required
                   v-model="email"
                 ></v-text-field>
               </v-flex>
@@ -129,8 +129,7 @@ export default {
     Navbar
   },
   data(){
-    return{
-      dialog:null,
+    return{    
       sources: [
         { id: 1, text: 'Facebook' },
         { id: 2, text: 'Website' },

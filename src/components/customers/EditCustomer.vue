@@ -76,26 +76,24 @@
                   v-model="customer.website"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
+                <h4 v-if="customer.source">Source: {{customer.source.text}}</h4>
                 <v-select
                    prepend-icon="group"
                    v-bind:items="sources"
                    v-model="customer.source"
-                   label="Source"
-                   item-text="text"
-                   item-value="customer.source"
+                   label="Sources"
                    single-line
                 ></v-select>
               </v-flex>
 
               <v-flex xs10>
+                <h4 v-if="customer.rating"> Current Rating: {{customer.rating.text}}</h4>
                 <v-select
-                  prepend-icon="star_rate"
                   :items="ratings"
                   v-model="customer.rating"
-                  label="Rating"
-                  item-text="text"
-                  item-value="customer.rating"
+                  label="Ratings"
                   single-line
                 ></v-select>
               </v-flex>
@@ -111,7 +109,6 @@
                <v-flex xs10>
                 <v-btn type="submit" block color="primary" dark>Update Customer</v-btn>
                 </v-flex>
-
 
             </v-layout>
           </v-container>
@@ -178,16 +175,9 @@ export default {
             website:this.customer.website,
             company:this.customer.company,
             designation:this.customer.designation,
-            source:{
-              id:this.customer.source.id,
-              text:this.customer.source.text
-            },
-            rating:{
-              id:this.customer.rating.id,
-              text:this.customer.rating.text
-            },
+            source:this.customer.source,
+            rating:this.customer.rating,
             details:this.customer.details,
-            timestamp:Date.now()
           })
           }
           this.$router.push({ name: 'Customers'})

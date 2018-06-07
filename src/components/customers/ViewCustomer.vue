@@ -22,8 +22,8 @@
             <h2>Country:</h2> &nbsp;&nbsp; {{this.customer.country}}
             <h2>City:</h2> &nbsp;&nbsp;  {{this.customer.city}}
             <h2>Website:</h2> &nbsp;  {{this.customer.website}}
-            <h2>Source:</h2> &nbsp; {{this.customer.source.text}}
-            <h2>Rating:</h2> &nbsp;  {{this.customer.rating.text}}
+            <h2>Source:</h2> &nbsp; <p v-if="this.customer.source">{{this.customer.source.text}}</p>
+            <h2>Rating:</h2> &nbsp; <p v-if="this.customer.rating">{{this.customer.rating.text}}</p>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -41,9 +41,6 @@
 
     </v-layout>
   </v-container>
-
-
-
 
 
       </v-content>
@@ -75,7 +72,7 @@ export default {
           website:null,
           company:null,
           designation:null,
-          source:"Networks",
+          source:null,
           rating:null,
           details:null,
           feedback:null

@@ -19,7 +19,7 @@
 
               <td>{{expense.expense_title}}</td>
               <td>{{expense.expense_amount}}</td>
-              <td>{{expense.expense_type}}</td>
+              <td><p v-if="expense.expense_type">{{expense.expense_type.text}}</p></td>
               <td>{{expense.timestamp}}</td>
               <td>
                 <v-btn fab dark small color="cyan" :to="{name: 'EditExpense', params: {id:expense.id}}">
@@ -71,7 +71,7 @@ export default {
       removeSales(id){
         var deleteResult = confirm("Want to delete?");
         if (deleteResult) {
-          db.collection('sales').doc(id).delete().then(() => {
+          db.collection('expenses').doc(id).delete().then(() => {
             this.expenses = this.expenses.filter(expense => {
               return expense.id != id
             })
@@ -93,7 +93,7 @@ export default {
               id:doc.id,
               expense_title:doc.data().expense_title,
               expense_amount:doc.data().expense_amount,
-              expense_type:doc.data().expense_type.text,
+              expense_type:doc.data().expense_type,
               timestamp:moment(doc.data().timestamp).format('ll')
             })
           }

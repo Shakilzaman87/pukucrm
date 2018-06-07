@@ -87,8 +87,7 @@ export default {
     Navbar
   },
   data(){
-    return{
-      dialog:null,
+    return{      
       item_name:null,
       price:null,
       quantity:null,
@@ -121,6 +120,7 @@ export default {
       }
   },
   created(){
+          // Show data of a specific sales
           db.collection("sales").doc(this.$route.params.id).onSnapshot(doc =>{
              this.sales = doc.data()
              this.sales.id = doc.id

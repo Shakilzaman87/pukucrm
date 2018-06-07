@@ -11,6 +11,7 @@ import AddSales from '@/components/sales/AddSales'
 import Sales from '@/components/sales/Sales'
 import EditSales from '@/components/sales/EditSales'
 import AddExpenses from '@/components/expenses/AddExpenses'
+import EditExpense from '@/components/expenses/EditExpense'
 import Expenses from '@/components/expenses/Expenses'
 
 Vue.use(Router)
@@ -77,6 +78,11 @@ export default new Router({
       path: '/expenses',
       name: 'Expenses',
       component: Expenses
+    },
+    {
+      path: '/edit-expenses/:id',
+      name: 'EditExpense',
+      component: EditExpense
     },
   ]
 })
