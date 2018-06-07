@@ -95,7 +95,7 @@
                   v-model="customer.rating"
                   label="Rating"
                   item-text="text"
-                  item-value="id"
+                  item-value="customer.rating"
                   single-line
                 ></v-select>
               </v-flex>
