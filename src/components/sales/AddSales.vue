@@ -9,7 +9,7 @@
           <v-card-title
             class="grey lighten-4 py-4 center"
           >
-            <h2>Add sales information</h2>
+            <h2>Add Sales Information</h2>
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
@@ -57,6 +57,7 @@
                     label="Customer"
                     item-text="customer_name"
                     item-value="customers"
+                    autocomplete=true
                     single-line
                     bottom
                 ></v-select>

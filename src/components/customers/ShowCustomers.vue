@@ -1,41 +1,30 @@
 <template>
   <v-content>
-    <table class="table table-responsive">
-      <thead>
-        <tr>
-          <th>Customer Name </th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Company</th>
-          <th>Designation</th>
-          <th>Created</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="customer in customers" :key="customer.id">
-          <td><router-link :to="{ name: 'ViewCustomer', params: {id:customer.id} }">{{customer.customer_name}}</router-link> </td>
-          <td>{{customer.email}}</td>
-          <td>{{customer.phone}}</td>
-          <td>{{customer.company}}</td>
-          <td>{{customer.designation}}</td>
-          <td>{{customer.timestamp}} ago</td>
-          <td>
-            <v-btn fab dark small color="cyan" :to="{name: 'EditCustomer',params: {id:customer.id}}">
-               <v-icon dark>edit</v-icon>
-            </v-btn>
-            <v-btn fab dark small color="pink"  @click="removeCustomer(customer.id)">
-               <v-icon dark>remove</v-icon>
-            </v-btn>
-          </td>
-        </tr>
+    <v-data-table
+      :headers="headers"
+      :items="customers"
+      :rows-per-page-items="rowsPerPageItems"
+      :pagination.sync="pagination"
+      row
+      wrap
+      class="elevation-1"
+    >
+      <template slot="items" slot-scope="props">
 
-      </tbody>
-    </table>
-
-
-
-
+        <td class="text-xs-right"><router-link :to="{ name: 'ViewCustomer', params: {id:props.item.id} }">{{props.item.customer_name}}</router-link></td>
+        <td class="text-xs-right">{{ props.item.email }}</td>
+        <td class="text-xs-right">{{ props.item.phone }}</td>
+        <td class="text-xs-right">{{ props.item.company }}</td>
+        <td class="text-xs-right">{{ props.item.designation }}</td>
+        <td class="text-xs-right">{{ props.item.timestamp }}</td>
+        <v-btn fab dark small color="cyan" :to="{name: 'EditCustomer', params: {id:props.item.id}}">
+           <v-icon dark>edit</v-icon>
+        </v-btn>
+        <v-btn fab dark small color="pink" @click="removeCustomer(props.item.id)">
+           <v-icon dark>remove</v-icon>
+        </v-btn>
+      </template>
+    </v-data-table>
 
     <!-- Add Customer Button  -->
     <v-btn :to="{name: 'AddCustomer'}"
@@ -63,6 +52,19 @@ export default {
   data(){
       return{
         customers:[],
+        rowsPerPageItems: [8, 16, 24],
+        pagination: {
+        rowsPerPage: 8
+        },
+        headers: [
+         { text: 'Customer Name'},
+         { text: 'Email' },
+         { text: 'Phone' },
+         { text: 'Company' },
+         { text: 'Designation' },
+         { text: 'Created' },
+         { text: 'Action' },
+       ]
       }
   },
   methods:{
@@ -111,5 +113,11 @@ tbody a{
   font-size: 13px;
   color:black;
   text-decoration: underline;
+}
+.text-xs-right{
+  text-align: left !important;
+}
+td{
+  text-align: center;
 }
 </style>

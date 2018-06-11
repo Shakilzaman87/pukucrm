@@ -171,7 +171,7 @@ export default {
             email:this.customer.email,
             phone:this.customer.phone,
             country:this.customer.country,
-            city:this.customer.country,
+            city:this.customer.city,
             website:this.customer.website,
             company:this.customer.company,
             designation:this.customer.designation,

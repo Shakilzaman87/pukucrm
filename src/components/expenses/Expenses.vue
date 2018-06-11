@@ -4,37 +4,28 @@
       <Navbar/>
     <div>
       <v-content>
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Expense title</th>
-              <th>Expense Amount</th>
-              <th>Expense Type</th>
-              <th>Created</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="expense in expenses" :key="expense.id">
-
-              <td>{{expense.expense_title}}</td>
-              <td>{{expense.expense_amount}}</td>
-              <td><p v-if="expense.expense_type">{{expense.expense_type.text}}</p></td>
-              <td>{{expense.timestamp}}</td>
-              <td>
-                <v-btn fab dark small color="cyan" :to="{name: 'EditExpense', params: {id:expense.id}}">
-                   <v-icon dark>edit</v-icon>
-                </v-btn>
-                <v-btn fab dark small color="pink" @click="removeSales(expense.id)">
-                   <v-icon dark>remove</v-icon>
-                </v-btn>
-              </td>
-
-            </tr>
-
-          </tbody>
-        </table>
-
+        <v-data-table
+          :headers="headers"
+          :items="expenses"
+          :rows-per-page-items="rowsPerPageItems"
+          :pagination.sync="pagination"
+          row
+          wrap
+          class="elevation-1"
+        >
+          <template slot="items" slot-scope="props">
+            <td class="text-xs-right">{{ props.item.expense_title }}</td>
+            <td class="text-xs-right">{{ props.item.expense_amount }}</td>
+            <td class="text-xs-right"><span v-if='props.item.expense_type'>{{ props.item.expense_type.text }}</span></td>
+            <td class="text-xs-right">{{ props.item.timestamp }}</td>
+            <v-btn fab dark small color="cyan" :to="{name: 'EditExpense', params: {id:props.item.id}}">
+               <v-icon dark>edit</v-icon>
+            </v-btn>
+            <v-btn fab dark small color="pink" @click="removeSales(props.item.id)">
+               <v-icon dark>remove</v-icon>
+            </v-btn>
+          </template>
+        </v-data-table>
 
         <!-- Add Expense Button  -->
         <v-btn :to="{name: 'AddExpenses'}"
@@ -64,7 +55,19 @@ export default {
   },
   data(){
       return{
-        expenses:[]
+        rowsPerPageItems: [8, 16, 24],
+        pagination: {
+        rowsPerPage: 8
+        },
+        expenses:[],
+        headers: [
+         { text: 'Expense title'},
+         { text: 'Expense Amount' },
+         { text: 'Expense Type' },
+         { text: 'Created' },
+         { text: 'Action' },
+       ]
+
       }
   },
   methods:{
@@ -104,6 +107,9 @@ export default {
 </script>
 
 <style>
+.text-xs-right{
+  text-align: left !important;
+}
 td{
   text-align: center;
 }

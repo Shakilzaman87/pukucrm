@@ -50,6 +50,7 @@
               </v-flex>
 
               <v-flex xs10>
+                <h4 v-if="sales.customer">Customer Name: {{sales.customer.customer_name}}</h4>
                 <v-select
                     prepend-icon="group"
                     v-bind:items="customers"
@@ -57,6 +58,7 @@
                     label="Customer"
                     item-text="customer_name"
                     item-value="sales.customer"
+                    autocomplete=true
                     single-line
                     bottom
                 ></v-select>
@@ -87,7 +89,7 @@ export default {
     Navbar
   },
   data(){
-    return{      
+    return{
       item_name:null,
       price:null,
       quantity:null,
@@ -108,10 +110,7 @@ export default {
             item_name:this.sales.item_name,
             price:this.sales.price,
             quantity:this.sales.quantity,
-            customer:{
-              id:this.sales.customer.id,
-              customer_name:this.sales.customer.customer_name
-            },
+            customer:this.sales.customer,
             total:parseFloat(this.sales.price * this.sales.quantity),
           })
 

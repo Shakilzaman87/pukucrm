@@ -4,12 +4,12 @@
       <Navbar/>
       <v-content>
 
-        <form @submit.prevent="addNewCustomer">
+        <form @submit.prevent="editLeads">
         <v-card>
           <v-card-title
             class="grey lighten-4 py-4 center"
           >
-            <h2>Add Customer's Information</h2>
+            <h2>Edit Leads Information</h2>
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
@@ -19,85 +19,79 @@
                   <v-text-field
                     required
                     prepend-icon="face"
-                    placeholder="Customer Name"
-                    v-model="customer_name"
+                    placeholder="Name"
+                    v-model="lead.name"
                   ></v-text-field>
                 </v-layout>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   type="email"
                   prepend-icon="mail"
                   placeholder="Email"
-                  v-model="email"
+                  v-model="lead.email"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   type="number"
                   prepend-icon="phone"
                   placeholder="(000) 000 - 0000"
-                  v-model="phone"
+                  v-model="lead.phone"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="business"
                   placeholder="Company"
-                  v-model="company"
+                  v-model="lead.company"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="work"
                   placeholder="Designation"
-                  v-model="designation"
+                  v-model="lead.designation"
                 ></v-text-field>
               </v-flex>
-              <v-flex xs10>
-                <v-text-field
-                  prepend-icon="language"
-                  placeholder="Country"
-                  v-model="country"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs10>
-                <v-text-field
-                  prepend-icon="home"
-                  placeholder="City"
-                  v-model="city"
-                ></v-text-field>
-              </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="tv"
                   placeholder="Website"
-                  v-model="website"
+                  v-model="lead.website"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
+                <h4 v-if="lead.source"> Source: {{lead.source.text}}</h4>
                 <v-select
                   prepend-icon="group"
                   :items="sources"
-                  v-model="source"
+                  v-model="lead.source"
                   label="Source"
                   single-line
                 ></v-select>
               </v-flex>
 
               <v-flex xs10>
+                <h4 v-if="lead.status"> Current Status: {{lead.status.text}}</h4>
                 <v-select
-                  prepend-icon="star_rate"
-                  :items="ratings"
-                  v-model="rating"
-                  label="Rating"
+                  prepend-icon="group"
+                  :items="allstatus"
+                  v-model="lead.status"
+                  label="Status"
                   single-line
                 ></v-select>
               </v-flex>
 
               <v-flex xs10>
                  <v-text-field
-                   v-model="details"
+                   v-model="lead.details"
                    label="Buesiness history with this customer....."
                    multi-line
                  ></v-text-field>
@@ -123,7 +117,7 @@
 import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
 export default {
-  name:'AddCustomer',
+  name:'AddLeads',
   components:{
     Navbar
   },
@@ -136,14 +130,17 @@ export default {
         { id: 4, text: 'Direct Marketing' },
         { id: 5, text: 'Others' },
       ],
-      ratings: [
-        { id: 1, text: "Bad" },
-        { id: 2, text: "Not Good" },
-        { id: 3, text: "Good" },
-        { id: 4, text: "Very Good" },
-        { id: 5, text: "Excellent" },
+      allstatus: [
+        { id: 1, text: "New" },
+        { id: 2, text: "Contacted" },
+        { id: 3, text: "Qualified" },
+        { id: 4, text: "Working" },
+        { id: 5, text: "Proposal Sent" },
+        { id: 6, text: "Customer ( Converted )" },
+
       ],
-      customer_name:null,
+      lead:[],
+      name:null,
       email:null,
       phone:null,
       country:null,
@@ -154,45 +151,64 @@ export default {
       source:null,
       rating:null,
       details:null,
-      feedback:null
+      feedback:null,
+      status:null,
     }
   },
   methods:{
-      addNewCustomer(){
-          if(this.customer_name){
-            this.dialog = false
-
-          let ref = db.collection('customers');
-          ref.add({
-            customer_name:this.customer_name,
-            email:this.email,
-            phone:this.phone,
-            country:this.country,
-            city:this.country,
-            website:this.website,
-            company:this.company,
-            designation:this.designation,
-            source:this.source,
-            rating:this.rating,
-            details:this.details,
-            timestamp:Date.now()
-          })
-          this.customer_name=null
-          this.email=null
-          this.phone = null
-          this.country=null
-          this.city=null
-          this.website=null
-          this.company=null
-          this.designation=null
-          this.source=null
-          this.rating=null
-          this.details = null
+      editLeads(){
+          if(this.lead.name && this.lead.status.id != 6){
+              let ref = db.collection('leads').doc(this.$route.params.id);
+              ref.update({
+              name:this.lead.name,
+              email:this.lead.email,
+              phone:this.lead.phone,
+              website:this.lead.website,
+              company:this.lead.company,
+              designation:this.lead.designation,
+              source:this.lead.source,
+              status:this.lead.status,
+              details:this.lead.details,
+              })
           }else{
-            this.dialog = true
+              let ref = db.collection('leads').doc(this.$route.params.id);
+              ref.update({
+              name:this.lead.name,
+              email:this.lead.email,
+              phone:this.lead.phone,
+              website:this.lead.website,
+              company:this.lead.company,
+              designation:this.lead.designation,
+              source:this.lead.source,
+              status:this.lead.status,
+              details:this.lead.details,
+              })
+
+              let cref = db.collection('customers');
+              cref.add({
+              customer_name:this.lead.name,
+              email:this.lead.email,
+              phone:this.lead.phone,
+              country:this.country,
+              city:this.country,
+              website:this.lead.website,
+              company:this.lead.company,
+              designation:this.lead.designation,
+              source:this.lead.source,
+              rating:this.rating,
+              details:this.details,
+              timestamp:Date.now()
+              })
           }
-          this.$router.push({ name: 'Customers'})
+          this.$router.push({ name: 'Leads'})
       }
+  },
+  created(){
+      // Show data of a specific Leads
+      db.collection("leads").doc(this.$route.params.id).onSnapshot(doc =>{
+          this.lead = doc.data()
+          this.lead.id = doc.id
+      })
   }
 }
 </script>

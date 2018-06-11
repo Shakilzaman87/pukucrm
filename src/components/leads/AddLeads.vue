@@ -4,12 +4,12 @@
       <Navbar/>
       <v-content>
 
-        <form @submit.prevent="addNewCustomer">
+        <form @submit.prevent="addNewLeads">
         <v-card>
           <v-card-title
             class="grey lighten-4 py-4 center"
           >
-            <h2>Add Customer's Information</h2>
+            <h2>Add Leads Information</h2>
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
@@ -19,13 +19,13 @@
                   <v-text-field
                     required
                     prepend-icon="face"
-                    placeholder="Customer Name"
-                    v-model="customer_name"
+                    placeholder="Name"
+                    v-model="name"
                   ></v-text-field>
                 </v-layout>
               </v-flex>
               <v-flex xs10>
-                <v-text-field
+                <v-text-field                  
                   type="email"
                   prepend-icon="mail"
                   placeholder="Email"
@@ -56,20 +56,6 @@
               </v-flex>
               <v-flex xs10>
                 <v-text-field
-                  prepend-icon="language"
-                  placeholder="Country"
-                  v-model="country"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs10>
-                <v-text-field
-                  prepend-icon="home"
-                  placeholder="City"
-                  v-model="city"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs10>
-                <v-text-field
                   prepend-icon="tv"
                   placeholder="Website"
                   v-model="website"
@@ -87,10 +73,10 @@
 
               <v-flex xs10>
                 <v-select
-                  prepend-icon="star_rate"
-                  :items="ratings"
-                  v-model="rating"
-                  label="Rating"
+                  prepend-icon="group"
+                  :items="allstatus"
+                  v-model="status"
+                  label="Status"
                   single-line
                 ></v-select>
               </v-flex>
@@ -123,7 +109,7 @@
 import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
 export default {
-  name:'AddCustomer',
+  name:'AddLeads',
   components:{
     Navbar
   },
@@ -136,62 +122,55 @@ export default {
         { id: 4, text: 'Direct Marketing' },
         { id: 5, text: 'Others' },
       ],
-      ratings: [
-        { id: 1, text: "Bad" },
-        { id: 2, text: "Not Good" },
-        { id: 3, text: "Good" },
-        { id: 4, text: "Very Good" },
-        { id: 5, text: "Excellent" },
+      allstatus: [
+        { id: 1, text: "New" },
+        { id: 2, text: "Contacted" },
+        { id: 3, text: "Qualified" },
+        { id: 4, text: "Working" },
+        { id: 5, text: "Proposal Sent" },
       ],
-      customer_name:null,
+      name:null,
       email:null,
       phone:null,
-      country:null,
-      city:null,
       website:null,
       company:null,
       designation:null,
       source:null,
       rating:null,
       details:null,
-      feedback:null
+      feedback:null,
+      status:null,
     }
   },
   methods:{
-      addNewCustomer(){
-          if(this.customer_name){
+      addNewLeads(){
+          if(this.name){
             this.dialog = false
 
-          let ref = db.collection('customers');
+          let ref = db.collection('leads');
           ref.add({
-            customer_name:this.customer_name,
+            name:this.name,
             email:this.email,
             phone:this.phone,
-            country:this.country,
-            city:this.country,
             website:this.website,
             company:this.company,
             designation:this.designation,
             source:this.source,
-            rating:this.rating,
+            status:this.status,
             details:this.details,
             timestamp:Date.now()
           })
-          this.customer_name=null
+          this.name=null
           this.email=null
           this.phone = null
-          this.country=null
-          this.city=null
           this.website=null
           this.company=null
           this.designation=null
           this.source=null
           this.rating=null
           this.details = null
-          }else{
-            this.dialog = true
           }
-          this.$router.push({ name: 'Customers'})
+          this.$router.push({ name: 'Leads'})
       }
   }
 }

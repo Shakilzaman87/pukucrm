@@ -173,7 +173,7 @@ export default {
               { text: 'Income vs Expense' }
             ]
           },
-          { icon: 'done_outline', text: 'Leads' },
+          { icon: 'done_outline', text: 'Leads' , link:'Leads' },
           { icon: 'email', text: 'Customer Support' },
           { icon: 'settings', text: 'Settings' },
           { icon: 'power_settings_new', text: 'Logout' },

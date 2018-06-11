@@ -9,62 +9,50 @@
 
               <v-flex xs12 sm6 md4 lg8>
               <v-card>
-                <v-card-title><h4>{{this.customer.customer_name}}</h4></v-card-title>
+                <v-card-title><h4>{{this.lead.name}}</h4></v-card-title>
                 <v-divider></v-divider>
                 <v-list dense>
                   <v-list-tile>
                     <v-list-tile-content>Email:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.email}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{this.lead.email}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
                     <v-list-tile-content>Phone:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.phone}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{this.lead.phone}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
                     <v-list-tile-content>Company:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.company}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{this.lead.company}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
                     <v-list-tile-content>Designation:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.designation}}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content>Country:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.country}}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content>City:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.city}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{this.lead.designation}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
                     <v-list-tile-content>Website:</v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{this.customer.website}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{this.lead.website}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
                     <v-list-tile-content>Source:</v-list-tile-content>
-                    <v-list-tile-content class="align-end" v-if="this.customer.source">{{this.customer.source.text}}</v-list-tile-content>
+                    <v-list-tile-content class="align-end" v-if="this.lead.source">{{this.lead.source.text}}</v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
-                    <v-list-tile-content>Rating:</v-list-tile-content>
-                    <v-list-tile-content class="align-end" v-if="this.customer.rating">{{this.customer.rating.text}}</v-list-tile-content>
+                    <v-list-tile-content>Status:</v-list-tile-content>
+                    <v-list-tile-content class="align-end" v-if="this.lead.status">{{this.lead.status.text}}</v-list-tile-content>
                   </v-list-tile>
-                  <v-list>
-                    <v-list-tile-content style="margin-left:15px"><b>Business History:</b></v-list-tile-content>
-                    <v-list-tile-content style="margin-left:15px" class="align-end" v-if="this.customer.rating">{{this.customer.details}}</v-list-tile-content>
-                  </v-list>
                 </v-list>
               </v-card>
 
               <v-card>
-                <v-card-title><h4>Business updates with {{this.customer.customer_name}}</h4></v-card-title>
+                <v-card-title><h4>Lead Updates</h4></v-card-title>
                 <v-divider></v-divider>
                 <v-list dense>
 
-                    <v-list v-for="customerrecord in customerrecords" :key="customerrecord.id">
+                    <v-list v-for="leadrecord in leadrecords" :key="leadrecord.id">
                       <v-list style="margin-left:16px">
-                        <b style="margin-right:10px">{{customerrecord.timestamp}}</b>
-                        {{customerrecord.text}}
-                        <a style="color:red;margin-left:10px" v-on:click="removecustomerRecord(customerrecord.id)">Delete</a>
+                        <b style="margin-right:10px">{{leadrecord.timestamp}}</b>
+                        {{leadrecord.text}}
+                        <a style="color:red;margin-left:10px" v-on:click="removeLeadRecord(leadrecord.id)">Delete</a>
                       </v-list>
                     </v-list>
                     <br>
@@ -76,7 +64,7 @@
                               required
                               prepend-icon="assignment"
                               placeholder="Enter updates"
-                              v-model="customerupdates"
+                              v-model="leadupdates"
                             ></v-text-field>
                           </v-layout>
                         </v-flex>
@@ -89,7 +77,7 @@
         </v-container>
 
         <!-- Add Expense Button  -->
-        <v-btn :to="{name: 'Addcustomers'}"
+        <v-btn :to="{name: 'AddLeads'}"
           fab
           bottom
           right
@@ -111,7 +99,7 @@ import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
 import moment from 'moment'
 export default {
-  name:'ViewCustomer',
+  name:'ViewLeads',
   components: {
     Navbar
   },
@@ -121,19 +109,10 @@ export default {
           pagination: {
           rowsPerPage: 8
           },
-          customer:[],
-          sources: [
-            { id: 1, text: 'Facebook' },
-            { id: 2, text: 'Website' },
-            { id: 3, text: 'Networks' },
-            { id: 4, text: 'Direct Marketing' },
-            { id: 5, text: 'Others' },
-          ],
-          customer_name:null,
+          lead: [],
+          name:null,
           email:null,
           phone:null,
-          country:null,
-          city:null,
           website:null,
           company:null,
           designation:null,
@@ -141,30 +120,31 @@ export default {
           rating:null,
           details:null,
           feedback:null,
-          customerupdates:null,
-          customerrecords:[]
+          status:null,
+          leadupdates:null,
+          leadrecords:[]
     }
   },
   methods:{
           addUpdates(){
-            if(this.customerupdates){
-              let ref = db.collection('customerrecords');
+            if(this.leadupdates){
+              let ref = db.collection('leadrecords');
               ref.add({
                 id:this.$route.params.id,
-                text:this.customerupdates,
+                text:this.leadupdates,
                 timestamp:Date.now()
               })
-              this.customerupdates = null
+              this.leadupdates = null
             }else {
               this.feedback = "Please insert some text"
             }
           },
-          removecustomerRecord(id){
+          removeLeadRecord(id){
             var result = confirm("Want to delete ?");
             if (result) {
-              db.collection('customerrecords').doc(id).delete().then(() => {
-                this.customerrecords = this.customerrecords.filter(customerrecord => {
-                  return customerrecord.id != id
+              db.collection('leadrecords').doc(id).delete().then(() => {
+                this.leadrecords = this.leadrecords.filter(leadrecord => {
+                  return leadrecord.id != id
                 })
               })
             }
@@ -172,21 +152,20 @@ export default {
 
   },
   created(){
-          // customer Doc
-          db.collection("customers").doc(this.$route.params.id).onSnapshot(doc =>{
-            this.customer = doc.data()
-            this.customer.id = doc.id
+          // Lead Doc
+          db.collection("leads").doc(this.$route.params.id).onSnapshot(doc =>{
+            this.lead = doc.data()
+            this.lead.id = doc.id
           })
 
-
-         // Show All customer Records
-         let ref = db.collection('customerrecords').where("id","==",this.$route.params.id).orderBy('timestamp', 'asc');
+         // Show All Lead Records
+         let ref = db.collection('leadrecords').where("id","==",this.$route.params.id).orderBy('timestamp', 'asc');
 
          ref.onSnapshot(snapshot => {
            snapshot.docChanges().forEach(change => {
              if(change.type == 'added'){
                let doc = change.doc
-               this.customerrecords.push({
+               this.leadrecords.push({
                  id:doc.id,
                  text:doc.data().text,
                  timestamp:moment(doc.data().timestamp).format('ll')
@@ -194,7 +173,6 @@ export default {
              }
            })
          })
-
 
   }
 

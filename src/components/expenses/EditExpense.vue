@@ -38,6 +38,7 @@
               </v-flex>
 
               <v-flex xs10>
+                <h4 v-if="expense.expense_type">Expense Type: {{expense.expense_type.text}}</h4>
                 <v-select
                   prepend-icon="group"
                   :items="expense_types"

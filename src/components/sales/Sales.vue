@@ -4,38 +4,30 @@
       <Navbar/>
     <div>
       <v-content>
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Item Name </th>
-              <th>Unit Price</th>
-              <th>Quantity</th>
-              <th>Customer</th>
-              <th>Created</th>
-              <th>Total</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="sale in sales" :key="sale.id">
-
-              <td>{{sale.item_name}}</td>
-              <td>{{sale.price}}</td>
-              <td>{{sale.quantity}}</td>
-              <td>{{sale.customer}}</td>
-              <td>{{sale.timestamp}}</td>
-              <td>{{sale.total}}</td>
-              <td>
-                <v-btn fab dark small color="cyan" :to="{name: 'EditSales', params: {id:sale.id}}">
-                   <v-icon dark>edit</v-icon>
-                </v-btn>
-                <v-btn fab dark small color="pink" @click="removeSales(sale.id)">
-                   <v-icon dark>remove</v-icon>
-                </v-btn>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <v-data-table
+          :headers="headers"
+          :items="sales"
+          :rows-per-page-items="rowsPerPageItems"
+          :pagination.sync="pagination"
+          row
+          wrap
+          class="elevation-1"
+        >
+          <template slot="items" slot-scope="props">
+            <td class="text-xs-right">{{ props.item.item_name }}</td>
+            <td class="text-xs-right">{{ props.item.price }}</td>
+            <td class="text-xs-right">{{ props.item.quantity }}</td>
+            <td class="text-xs-right">{{ props.item.customer }}</td>
+            <td class="text-xs-right">{{ props.item.timestamp }}</td>
+            <td class="text-xs-right">{{ props.item.total }}</td>
+            <v-btn fab dark small color="cyan" :to="{name: 'EditSales', params: {id:props.item.id}}">
+               <v-icon dark>edit</v-icon>
+            </v-btn>
+            <v-btn fab dark small color="pink" @click="removeSales(props.item.id)">
+               <v-icon dark>remove</v-icon>
+            </v-btn>
+          </template>
+        </v-data-table>
 
 
         <!-- Add Customer Button  -->
@@ -67,6 +59,19 @@ export default {
   data(){
       return{
         sales:[],
+        rowsPerPageItems: [8, 16, 24],
+        pagination: {
+        rowsPerPage: 8
+        },
+        headers: [
+         { text: 'Item Name'},
+         { text: 'Unit Price' },
+         { text: 'Quantity' },
+         { text: 'Customer' },
+         { text: 'Created' },
+         { text: 'Total' },
+         { text: 'Action' },
+       ]
       }
   },
   methods:{
@@ -113,7 +118,9 @@ tbody a{
   color:black;
   text-decoration: underline;
 }
-
+.text-xs-right{
+  text-align: left !important;
+}
 td{
   text-align: center;
 }
