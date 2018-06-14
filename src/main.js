@@ -17,9 +17,6 @@ Vue.config.productionTip = false
 
 // Chart
 
-
-
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
