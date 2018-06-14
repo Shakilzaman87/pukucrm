@@ -24,6 +24,7 @@
                   ></v-text-field>
                 </v-layout>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   type="email"
@@ -32,6 +33,7 @@
                   v-model="email"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   type="number"
@@ -40,6 +42,7 @@
                   v-model="phone"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="business"
@@ -47,6 +50,7 @@
                   v-model="company"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="work"
@@ -54,6 +58,7 @@
                   v-model="designation"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="language"
@@ -61,6 +66,7 @@
                   v-model="country"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="home"
@@ -68,6 +74,7 @@
                   v-model="city"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-text-field
                   prepend-icon="tv"
@@ -75,6 +82,7 @@
                   v-model="website"
                 ></v-text-field>
               </v-flex>
+
               <v-flex xs10>
                 <v-select
                   prepend-icon="group"

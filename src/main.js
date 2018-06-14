@@ -9,8 +9,16 @@ import Vuetify from 'vuetify'
 Vue.use(Vuetify)
 import 'vuetify/dist/vuetify.min.css'
 
+// Vue Chat Scroll
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
 
 Vue.config.productionTip = false
+
+// Chart
+
+
+
 
 /* eslint-disable no-new */
 new Vue({

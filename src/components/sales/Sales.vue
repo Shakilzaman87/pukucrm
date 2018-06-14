@@ -89,7 +89,7 @@ export default {
   },
   created(){
 
-      // Show All Customers
+      // Show All Sales
       let ref = db.collection('sales').orderBy('timestamp', 'desc')
 
       ref.onSnapshot(snapshot => {

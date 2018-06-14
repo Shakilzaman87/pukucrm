@@ -172,7 +172,7 @@ export default {
 
   },
   created(){
-          // customer Doc
+          // Single Customer
           db.collection("customers").doc(this.$route.params.id).onSnapshot(doc =>{
             this.customer = doc.data()
             this.customer.id = doc.id

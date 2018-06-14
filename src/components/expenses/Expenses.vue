@@ -85,24 +85,24 @@ export default {
   },
   created(){
 
-      // Show All Expense
-      let ref = db.collection('expenses').orderBy('timestamp', 'desc')
+        // Show All Expense
+        let ref = db.collection('expenses').orderBy('timestamp', 'desc')
 
-      ref.onSnapshot(snapshot => {
-        snapshot.docChanges().forEach(change => {
-          if(change.type == 'added'){
-            let doc = change.doc
-            this.expenses.push({
-              id:doc.id,
-              expense_title:doc.data().expense_title,
-              expense_amount:doc.data().expense_amount,
-              expense_type:doc.data().expense_type,
-              timestamp:moment(doc.data().timestamp).format('ll')
-            })
-          }
+        ref.onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type == 'added'){
+              let doc = change.doc
+              this.expenses.push({
+                id:doc.id,
+                expense_title:doc.data().expense_title,
+                expense_amount:doc.data().expense_amount,
+                expense_type:doc.data().expense_type,
+                timestamp:moment(doc.data().timestamp).format('ll')
+              })
+            }
+          })
         })
-      })
-     }
+    }
 }
 </script>
 
