@@ -17,10 +17,17 @@ Vue.config.productionTip = false
 
 // Chart
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
+
+import firebase from 'firebase'
+let app;
+
+firebase.auth().onAuthStateChanged(function(user){
+  if(!app){
+    app = new Vue({
+      el: '#app',
+      router,
+      components: { App },
+      template: '<App/>'
+    })
+  }
+});

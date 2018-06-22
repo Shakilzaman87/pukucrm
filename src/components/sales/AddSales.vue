@@ -57,7 +57,6 @@
                     label="Customer"
                     item-text="customer_name"
                     item-value="customers"
-                    autocomplete=true
                     single-line
                     bottom
                 ></v-select>
@@ -73,8 +72,6 @@
 
         </v-card>
         </form>
-
-
       </v-content>
   </v-app>
 </template>
@@ -103,6 +100,7 @@ export default {
   },
   methods:{
       addNewSales(){
+
           if(this.item_name){
 
           let ref = db.collection('sales');
@@ -112,6 +110,7 @@ export default {
               quantity:this.quantity,
               customer:this.customer,
               total:parseFloat(this.price * this.quantity),
+              sales_date:moment().format('DD-MM-YYYY'),
               timestamp:Date.now()
             })
             this.item_name=null

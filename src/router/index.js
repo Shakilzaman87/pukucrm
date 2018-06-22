@@ -32,7 +32,7 @@ import AdminSupportMessage from '@/components/support/AdminSupportMessage'
 import firebase from 'firebase'
 Vue.use(Router)
 
-let router = new Router({
+const router = new Router({
   mode:'history',
   routes: [
     {
@@ -46,7 +46,7 @@ let router = new Router({
       component: Dashboard,
       meta:{
         requiresAuth:true
-      }    
+      }
     },
     {
       path: '/customers',
@@ -200,7 +200,7 @@ let router = new Router({
       },
       beforeEnter: (to, from, next) => {
         if(to.params.id){
-          next()
+          next( )
         }else{
           next({ name:'AdminSupportList'})
         }
@@ -210,14 +210,12 @@ let router = new Router({
 })
 
 
-
-
-router.beforeEach((to,from,next)=>{
+router.beforeEach((to,from,next) => {
   let currentUser=firebase.auth().currentUser;
   let requiresAuth=to.matched.some(record=>record.meta.requiresAuth);
 
   if(requiresAuth && !currentUser) next('/')
-  else if (!requiresAuth && currentUser) next('profile')
+  else if (!requiresAuth && currentUser) next('dashboard')
   else next()
 });
 
