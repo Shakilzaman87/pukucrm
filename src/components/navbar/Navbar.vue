@@ -124,15 +124,10 @@
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <span class="hidden-sm-and-down">Puku CRM</span>
       </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        prepend-icon="search"
-        label="Search"
-        class="hidden-sm-and-down"
-      ></v-text-field>
+
+    
       <v-spacer></v-spacer>
-  
+
       <v-btn icon @click="logout()">
         <v-icon>power_settings_new</v-icon>
       </v-btn>
@@ -154,18 +149,8 @@ export default {
           { icon: 'people', text: 'Customers', link:'Customers' },
           { icon: 'trending_up', text: 'Sales', link:'Sales'},
           { icon: 'subject', text: 'Expenses', link:'Expenses' },
-
-          {
-            icon: 'keyboard_arrow_up',
-            'icon-alt': 'assessment',
-            text: 'Report',
-            model: false,
-            children: [
-              { text: 'Sales' },
-              { text: 'Expenses' },
-              { text: 'Income vs Expense' }
-            ]
-          },
+          { icon: 'subject', text: 'Sales Graph of this Month', link:'Graph' },
+          { icon: 'assessment', text: 'Report' , link:'Report' },
           { icon: 'done_outline', text: 'Leads' , link:'Leads' },
           { icon: 'email', text: 'Live Chat', link:'AdminSupportList' },
           { icon: 'settings', text: 'Settings' },

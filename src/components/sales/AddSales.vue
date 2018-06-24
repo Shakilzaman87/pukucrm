@@ -59,6 +59,7 @@
                     item-value="customers"
                     single-line
                     bottom
+                    autocomplete
                 ></v-select>
               </v-flex>
 

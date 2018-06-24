@@ -17,6 +17,8 @@ import EditSales from '@/components/sales/EditSales'
 import AddExpenses from '@/components/expenses/AddExpenses'
 import EditExpense from '@/components/expenses/EditExpense'
 import Expenses from '@/components/expenses/Expenses'
+//Graph
+import Graph from '@/components/graph/Graph'
 //Leads
 import Leads from '@/components/leads/Leads'
 import AddLeads from '@/components/leads/AddLeads'
@@ -124,6 +126,14 @@ const router = new Router({
       path: '/edit-expenses/:id',
       name: 'EditExpense',
       component: EditExpense,
+      meta:{
+        requiresAuth:true
+      }
+    },
+    {
+      path: '/graph',
+      name: 'Graph',
+      component: Graph,
       meta:{
         requiresAuth:true
       }

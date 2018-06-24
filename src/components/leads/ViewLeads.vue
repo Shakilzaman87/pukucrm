@@ -131,6 +131,7 @@ export default {
               let ref = db.collection('leadrecords');
               ref.add({
                 id:this.$route.params.id,
+                name:this.lead.name,
                 text:this.leadupdates,
                 timestamp:Date.now()
               })

@@ -4,11 +4,23 @@
       <Navbar/>
     <div>
       <v-content>
+        <v-card-title>
+          Nutrition
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="search"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
+        </v-card-title>
         <v-data-table
           :headers="headers"
           :items="sales"
+          :search="search"
           :rows-per-page-items="rowsPerPageItems"
-          :pagination.sync="pagination"
+        
           row
           wrap
           class="elevation-1"
@@ -58,6 +70,7 @@ export default {
   },
   data(){
       return{
+        search: '',
         sales:[],
         rowsPerPageItems: [8, 16, 24],
         pagination: {

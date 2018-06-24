@@ -152,6 +152,7 @@ export default {
               ref.add({
                 id:this.$route.params.id,
                 text:this.customerupdates,
+                name:this.customer.customer_name,
                 timestamp:Date.now()
               })
               this.customerupdates = null
