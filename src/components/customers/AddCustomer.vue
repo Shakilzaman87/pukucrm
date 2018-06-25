@@ -130,6 +130,7 @@
 <script>
 import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
+import moment from 'moment'
 export default {
   name:'AddCustomer',
   components:{
@@ -183,7 +184,8 @@ export default {
             source:this.source,
             rating:this.rating,
             details:this.details,
-            timestamp:Date.now()
+            created_month:moment().format('MM-YYYY'),
+            timestamp:Date.now(),
           })
           this.customer_name=null
           this.email=null

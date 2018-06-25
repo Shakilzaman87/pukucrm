@@ -112,6 +112,7 @@ export default {
               customer:this.customer,
               total:parseFloat(this.price * this.quantity),
               sales_date:moment().format('DD-MM-YYYY'),
+              created_month:moment().format('MM-YYYY'),
               timestamp:Date.now()
             })
             this.item_name=null

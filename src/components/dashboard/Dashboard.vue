@@ -18,8 +18,8 @@
                   <v-card-title primary-title>
                     <div class="headline">Customers</div>
                     <div>
-                      <span>Customers of this month :  </span><br>
-                      <span>Total Customers: </span>
+                      <span>Customers of this month : {{customer_of_this_month}} </span><br>
+                      <span>Total Customers: {{customer_total}}</span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -33,8 +33,8 @@
                   <v-card-title primary-title>
                     <div class="headline">Sales</div>
                     <div>
-                      <span>Sales of this month :  </span><br>
-                      <span>Total Sales: </span>
+                      <span>Sales of this month : {{sales_of_this_month}} </span><br>
+                      <span>Total Sales: {{sales_total}} </span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -48,8 +48,8 @@
                   <v-card-title primary-title>
                     <div class="headline">Expenses</div>
                     <div>
-                      <span>Expenses of this month :  </span><br>
-                      <span>Total Expense: </span>
+                      <span>Expenses of this month : {{expenses_of_this_month}} </span><br>
+                      <span>Total Expense: {{ expenses_total }}</span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -63,8 +63,8 @@
                   <v-card-title primary-title>
                     <div class="headline">Leads</div>
                     <div>
-                      <span>Leads of this month :  </span><br>
-                      <span>Total Leads: </span>
+                      <span>Leads of this month : {{leads_of_this_month}} </span><br>
+                      <span>Total Leads: {{leads_total}} </span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -154,7 +154,14 @@ export default {
           { text: 'Updates'},
           { text: 'Created' },
         ],
-
+        customer_of_this_month:'',
+        customer_total:'',
+        sales_of_this_month:'',
+        sales_total:'',
+        expenses_of_this_month:'',
+        expenses_total:'',
+        leads_of_this_month:'',
+        leads_total:'',
       }
   },
   created(){
@@ -191,7 +198,77 @@ export default {
           })
         })
 
+        // Total Customers of this Month
+        db.collection('customers').where("created_month", "==", moment().format('MM-YYYY'))
+       .get()
+       .then(snapshot => {
+             this.customer_of_this_month = snapshot.size;
+        })
 
+        // Total Customers
+        db.collection('customers')
+       .get()
+       .then(snapshot => {
+             this.customer_total = snapshot.size;
+        })
+
+        // Total Sales of this Month
+        db.collection('sales').where("created_month", "==", moment().format('MM-YYYY'))
+        .get()
+        .then(snapshot => {
+              var totalSalesOfThisMonth = 0;
+              snapshot.forEach(doc => {
+                 totalSalesOfThisMonth += Number(doc.data().total)
+              })
+              this.sales_of_this_month = totalSalesOfThisMonth;
+         })
+
+         // Total sales
+         db.collection('sales')
+        .get()
+        .then(snapshot => {
+              var totalSales = 0;
+              snapshot.forEach(doc => {
+                 totalSales += Number(doc.data().total)
+              })
+              this.sales_total = totalSales;
+         })
+
+         // Total Expense of this Month
+         db.collection('expenses').where("created_month", "==", moment().format('MM-YYYY'))
+         .get()
+         .then(snapshot => {
+               var totalExpensesOfThisMonth = 0;
+               snapshot.forEach(doc => {
+                  totalExpensesOfThisMonth += Number(doc.data().expense_amount)
+               })
+               this.expenses_of_this_month = totalExpensesOfThisMonth;
+          })
+
+          // Total Expenses
+          db.collection('expenses')
+         .get()
+         .then(snapshot => {
+               var totalExpneses = 0;
+               snapshot.forEach(doc => {
+                  totalExpneses += Number(doc.data().expense_amount)
+               })
+               this.expenses_total = totalExpneses;
+          })
+
+          // Total Customers of this Month
+          db.collection('leads').where("created_month", "==", moment().format('MM-YYYY'))
+         .get()
+         .then(snapshot => {
+               this.leads_of_this_month = snapshot.size;
+          })
+
+          // Total Customers
+          db.collection('leads')
+         .get()
+         .then(snapshot => {
+               this.leads_total = snapshot.size;
+          })
 
     }
 

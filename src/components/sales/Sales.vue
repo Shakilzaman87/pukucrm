@@ -5,12 +5,11 @@
     <div>
       <v-content>
         <v-card-title>
-          Nutrition
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
             append-icon="search"
-            label="Search"
+            label="Search Sales"
             single-line
             hide-details
           ></v-text-field>
@@ -20,7 +19,7 @@
           :items="sales"
           :search="search"
           :rows-per-page-items="rowsPerPageItems"
-        
+
           row
           wrap
           class="elevation-1"
@@ -77,14 +76,14 @@ export default {
         rowsPerPage: 8
         },
         headers: [
-         { text: 'Item Name'},
-         { text: 'Unit Price' },
-         { text: 'Quantity' },
-         { text: 'Customer' },
-         { text: 'Created' },
-         { text: 'Total' },
-         { text: 'Action' },
-       ]
+          { text: 'Item Name', value: 'item_name' },
+          { text: 'Unit Price', value: 'price' },
+          { text: 'Quantity', value: 'quantity' },
+          { text: 'Customer', value: 'customer' },
+          { text: 'Created', value: 'timestamp' },
+          { text: 'Total', value: 'total' },
+          { text: 'Action', value: 'item_name' }
+        ]
       }
   },
   methods:{

@@ -1,8 +1,19 @@
 <template>
   <v-content>
+    <v-card-title>
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="search"
+        label="Search Customer"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
     <v-data-table
       :headers="headers"
       :items="customers"
+      :search="search"
       :rows-per-page-items="rowsPerPageItems"
       :pagination.sync="pagination"
       row
@@ -51,19 +62,20 @@ export default {
   },
   data(){
       return{
+        search: '',
         customers:[],
         rowsPerPageItems: [8, 16, 24],
         pagination: {
         rowsPerPage: 8
         },
         headers: [
-         { text: 'Customer Name'},
-         { text: 'Email' },
-         { text: 'Phone' },
-         { text: 'Company' },
-         { text: 'Designation' },
-         { text: 'Created' },
-         { text: 'Action' },
+         { text: 'Customer Name', value: 'customer_name' },
+         { text: 'Email' , value: 'email' },
+         { text: 'Phone' , value: 'phone' },
+         { text: 'Company' , value: 'company' },
+         { text: 'Designation' , value: 'designation' },
+         { text: 'Created' , value: 'created' },
+         { text: 'Action' , value: 'action' },
        ]
       }
   },

@@ -99,6 +99,7 @@ export default {
               expense_title:this.expense_title,
               expense_amount:this.expense_amount,
               expense_type:this.expense_type,
+              created_month:moment().format('MM-YYYY'),
               timestamp:Date.now()
             })
             this.expense_title=null

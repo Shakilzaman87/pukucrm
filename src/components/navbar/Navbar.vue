@@ -125,7 +125,7 @@
         <span class="hidden-sm-and-down">Puku CRM</span>
       </v-toolbar-title>
 
-    
+
       <v-spacer></v-spacer>
 
       <v-btn icon @click="logout()">
@@ -149,14 +149,11 @@ export default {
           { icon: 'people', text: 'Customers', link:'Customers' },
           { icon: 'trending_up', text: 'Sales', link:'Sales'},
           { icon: 'subject', text: 'Expenses', link:'Expenses' },
-          { icon: 'subject', text: 'Sales Graph of this Month', link:'Graph' },
-          { icon: 'assessment', text: 'Report' , link:'Report' },
+          { icon: 'trending_up', text: 'Sales Graph of this Month', link:'Graph' },
           { icon: 'done_outline', text: 'Leads' , link:'Leads' },
           { icon: 'email', text: 'Live Chat', link:'AdminSupportList' },
           { icon: 'settings', text: 'Settings' },
-
         ],
-
       }
   },
   methods:{

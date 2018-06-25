@@ -4,9 +4,20 @@
       <Navbar/>
     <div>
       <v-content>
+        <v-card-title>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="search"
+            label="Search Expenses"
+            single-line
+            hide-details
+          ></v-text-field>
+        </v-card-title>
         <v-data-table
           :headers="headers"
           :items="expenses"
+          :search="search"
           :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           row
@@ -55,17 +66,18 @@ export default {
   },
   data(){
       return{
+        search: '',
         rowsPerPageItems: [8, 16, 24],
         pagination: {
         rowsPerPage: 8
         },
         expenses:[],
         headers: [
-         { text: 'Expense title'},
-         { text: 'Expense Amount' },
-         { text: 'Expense Type' },
-         { text: 'Created' },
-         { text: 'Action' },
+         { text: 'Expense title', value: 'expense_title'},
+         { text: 'Expense Amount' , value: 'expense_amount'},
+         { text: 'Expense Type' , value: 'expense_type'},
+         { text: 'Created' , value: 'created'},
+         { text: 'Action' , value: 'action'},
        ]
 
       }

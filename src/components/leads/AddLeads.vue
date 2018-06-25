@@ -25,7 +25,7 @@
                 </v-layout>
               </v-flex>
               <v-flex xs10>
-                <v-text-field                  
+                <v-text-field
                   type="email"
                   prepend-icon="mail"
                   placeholder="Email"
@@ -108,6 +108,7 @@
 <script>
 import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
+import moment from 'moment'
 export default {
   name:'AddLeads',
   components:{
@@ -158,6 +159,7 @@ export default {
             source:this.source,
             status:this.status,
             details:this.details,
+            created_month:moment().format('MM-YYYY'),
             timestamp:Date.now()
           })
           this.name=null
