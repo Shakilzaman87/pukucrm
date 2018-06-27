@@ -26,11 +26,11 @@
         >
           <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.item_name }}</td>
-            <td class="text-xs-right">{{ props.item.price }}</td>
+            <td class="text-xs-right">{{ props.item.price }} {{currency}}</td>
             <td class="text-xs-right">{{ props.item.quantity }}</td>
             <td class="text-xs-right">{{ props.item.customer }}</td>
             <td class="text-xs-right">{{ props.item.timestamp }}</td>
-            <td class="text-xs-right">{{ props.item.total }}</td>
+            <td class="text-xs-right">{{ props.item.total }} {{currency}}</td>
             <v-btn fab dark small color="cyan" :to="{name: 'EditSales', params: {id:props.item.id}}">
                <v-icon dark>edit</v-icon>
             </v-btn>
@@ -69,6 +69,7 @@ export default {
   },
   data(){
       return{
+        currency:'',
         search: '',
         sales:[],
         rowsPerPageItems: [8, 16, 24],
@@ -100,6 +101,10 @@ export default {
 
   },
   created(){
+      // Current Currency
+      db.collection("settings").doc('config').onSnapshot(doc =>{
+         this.currency = doc.data().currency
+      })
 
       // Show All Sales
       let ref = db.collection('sales').orderBy('timestamp', 'desc')

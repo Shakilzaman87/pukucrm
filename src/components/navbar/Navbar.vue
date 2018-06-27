@@ -47,7 +47,9 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  {{ child.text }}
+                  <router-link :to="{ name: child.link, params: {} }" style="color:rgba(0,0,0,.87)">
+                    {{ child.text }}
+                  </router-link>
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -102,14 +104,7 @@
       <v-btn icon>
         <v-icon>notifications</v-icon>
       </v-btn>
-      <v-btn icon large>
-        <v-avatar size="32px" tile>
-          <img
-            src="https://vuetifyjs.com/static/doc-images/logo.svg"
-            alt="Vuetify"
-          >
-        </v-avatar>
-      </v-btn>
+
     </v-toolbar>
 
     <v-toolbar
@@ -124,7 +119,6 @@
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <span class="hidden-sm-and-down">Puku CRM</span>
       </v-toolbar-title>
-
 
       <v-spacer></v-spacer>
 
@@ -147,12 +141,30 @@ export default {
         items: [
           { icon: 'dashboard', text: 'Dashboard', link:'Dashboard' },
           { icon: 'people', text: 'Customers', link:'Customers' },
-          { icon: 'trending_up', text: 'Sales', link:'Sales'},
+          { icon: 'local_atm', text: 'Sales', link:'Sales'},
           { icon: 'subject', text: 'Expenses', link:'Expenses' },
           { icon: 'trending_up', text: 'Sales Graph of this Month', link:'Graph' },
           { icon: 'done_outline', text: 'Leads' , link:'Leads' },
-          { icon: 'email', text: 'Live Chat', link:'AdminSupportList' },
-          { icon: 'settings', text: 'Settings' },
+          { icon: 'chat', text: 'Live Chat', link:'AdminSupportList' },
+          { icon: 'settings', text: 'Settings' , link:'Settings'},
+          {
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          text: 'Documentation',
+          model: false,
+          children: [
+            { text: 'Overview', link:'Documentation' },
+            { text: 'Installation' },
+            { text: 'Dashboard' },
+            { text: 'Customers' },
+            { text: 'Sales' },
+            { text: 'Expenses' },
+            { text: 'Sales Graph of this month' },
+            { text: 'Leads' },
+            { text: 'Live Chat' },
+            { text: 'Settings' }
+          ]
+         },
         ],
       }
   },

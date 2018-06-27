@@ -30,6 +30,11 @@ import Message from '@/components/support/Message'
 import Expired from '@/components/support/Expired'
 import AdminSupportList from '@/components/support/AdminSupportList'
 import AdminSupportMessage from '@/components/support/AdminSupportMessage'
+//User Info
+import Settings from '@/components/settings/Settings'
+//Documentation
+import Documentation from '@/components/documentation/Documentation'
+
 
 import firebase from 'firebase'
 Vue.use(Router)
@@ -216,6 +221,20 @@ const router = new Router({
         }
       }
     },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: Settings,
+      meta:{
+        requiresAuth:true
+      }
+    },
+    {
+      path: '/documentation',
+      name: 'Documentation',
+      component: Documentation
+    },
+
   ]
 })
 
@@ -225,7 +244,7 @@ router.beforeEach((to,from,next) => {
   let requiresAuth=to.matched.some(record=>record.meta.requiresAuth);
 
   if(requiresAuth && !currentUser) next('/')
-  else if (!requiresAuth && currentUser) next('dashboard')
+  //else if (!requiresAuth && currentUser) next('dashboard')
   else next()
 });
 

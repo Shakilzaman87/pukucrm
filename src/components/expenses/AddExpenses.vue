@@ -17,7 +17,7 @@
               <v-flex xs10 align-center justify-space-between>
                 <v-layout align-center>
                   <v-text-field
-                    prepend-icon="face"
+                    prepend-icon="format_size"
                     placeholder="Expense title"
                     required
                     v-model="expense_title"
@@ -29,7 +29,7 @@
                 <v-layout align-center>
                   <v-text-field
                     type="number"
-                    prepend-icon="face"
+                    prepend-icon="attach_money"
                     placeholder="Expense Amount"
                     required
                     v-model="expense_amount"
@@ -39,7 +39,7 @@
 
               <v-flex xs10>
                 <v-select
-                  prepend-icon="group"
+                  prepend-icon="collections"
                   :items="expense_types"
                   v-model="expense_type"
                   label="Expense Type"

@@ -81,7 +81,7 @@
               <v-flex xs10>
                 <h4 v-if="lead.status"> Current Status: {{lead.status.text}}</h4>
                 <v-select
-                  prepend-icon="group"
+                  prepend-icon="account_box"
                   :items="allstatus"
                   v-model="lead.status"
                   label="Status"

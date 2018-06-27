@@ -13,7 +13,7 @@
           >
             <v-layout row wrap>
 
-              <v-flex xs3>
+              <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
                     <div class="headline">Customers</div>
@@ -28,13 +28,13 @@
                 </v-card>
               </v-flex>
 
-              <v-flex xs3>
+              <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
                     <div class="headline">Sales</div>
                     <div>
-                      <span>Sales of this month : {{sales_of_this_month}} </span><br>
-                      <span>Total Sales: {{sales_total}} </span>
+                      <span>Sales of this month : {{sales_of_this_month}} {{currency}}</span><br>
+                      <span>Total Sales: {{sales_total}} {{currency}}</span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -43,13 +43,13 @@
                 </v-card>
               </v-flex>
 
-              <v-flex xs3>
+              <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
                     <div class="headline">Expenses</div>
                     <div>
-                      <span>Expenses of this month : {{expenses_of_this_month}} </span><br>
-                      <span>Total Expense: {{ expenses_total }}</span>
+                      <span>Expenses of this month : {{expenses_of_this_month}} {{currency}}</span><br>
+                      <span>Total Expense: {{ expenses_total }} {{currency}}</span>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -58,7 +58,7 @@
                 </v-card>
               </v-flex>
 
-              <v-flex xs3>
+              <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
                     <div class="headline">Leads</div>
@@ -80,8 +80,8 @@
 
       <v-content>
         <v-container>
-          <v-layout>
-              <v-flex xs6>
+          <v-layout row wrap>
+              <v-flex lg6>
                 <h4>Customer Updates</h4>
                 <v-data-table
                   :headers="customerHeaders"
@@ -101,7 +101,7 @@
               </v-flex>
 
 
-              <v-flex xs6>
+              <v-flex lg6>
                 <h4>Lead Updates</h4>
                 <v-data-table
                   :headers="leadHeaders"
@@ -162,9 +162,15 @@ export default {
         expenses_total:'',
         leads_of_this_month:'',
         leads_total:'',
+        currency:'',
       }
   },
   created(){
+
+        // Current Currency
+        db.collection("settings").doc('config').onSnapshot(doc =>{
+           this.currency = doc.data().currency
+        })
 
         // Show All Customer Updates
         let cref = db.collection('customerrecords').orderBy('timestamp', 'desc')

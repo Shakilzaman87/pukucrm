@@ -26,7 +26,7 @@
         >
           <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.expense_title }}</td>
-            <td class="text-xs-right">{{ props.item.expense_amount }}</td>
+            <td class="text-xs-right">{{ props.item.expense_amount }} {{currency}}</td>
             <td class="text-xs-right"><span v-if='props.item.expense_type'>{{ props.item.expense_type.text }}</span></td>
             <td class="text-xs-right">{{ props.item.timestamp }}</td>
             <v-btn fab dark small color="cyan" :to="{name: 'EditExpense', params: {id:props.item.id}}">
@@ -66,6 +66,7 @@ export default {
   },
   data(){
       return{
+        currency:'',
         search: '',
         rowsPerPageItems: [8, 16, 24],
         pagination: {
@@ -96,6 +97,10 @@ export default {
 
   },
   created(){
+        // Current Currency
+        db.collection("settings").doc('config').onSnapshot(doc =>{
+           this.currency = doc.data().currency
+        })
 
         // Show All Expense
         let ref = db.collection('expenses').orderBy('timestamp', 'desc')

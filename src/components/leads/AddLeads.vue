@@ -73,7 +73,7 @@
 
               <v-flex xs10>
                 <v-select
-                  prepend-icon="group"
+                  prepend-icon="account_box"
                   :items="allstatus"
                   v-model="status"
                   label="Status"

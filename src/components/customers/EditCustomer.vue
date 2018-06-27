@@ -28,8 +28,7 @@
                 <v-text-field
                   type="email"
                   prepend-icon="mail"
-                  placeholder="Email"
-                  required
+                  placeholder="Email"                
                   v-model="customer.email"
                 ></v-text-field>
               </v-flex>

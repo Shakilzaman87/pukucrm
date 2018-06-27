@@ -101,7 +101,7 @@
                           <v-text-field
                             v-model="formData.password"
                             name="password"
-                            label="Password"                            
+                            label="Password"
                             type="password"
                             required></v-text-field>
                         </v-flex>
@@ -165,7 +165,7 @@ export default {
                 })
 
              }else{
-              this.feedback = "Password not matched";
+              this.feedback = "Confirm password not matched";
              }
 
         },
