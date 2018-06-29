@@ -58,7 +58,7 @@
 
                       <v-layout row>
                         <v-flex xs12>
-                          <v-btn block color="primary" dark type="submit">Sign In</v-btn>
+                          <v-btn block color="primary" dark type="submit">Get Started</v-btn>
                         </v-flex>
                       </v-layout>
                       <p class="feedback-error">{{feedback}}</p>

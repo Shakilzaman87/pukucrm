@@ -122,7 +122,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="logout()">
+      <v-btn icon v-if="userLoggedin" @click="logout()">
         <v-icon>power_settings_new</v-icon>
       </v-btn>
 
@@ -137,6 +137,7 @@ export default {
   name:'Navbar',
   data(){
       return{
+        userLoggedin:false,
         drawer: null,
         items: [
           { icon: 'dashboard', text: 'Dashboard', link:'Dashboard' },
@@ -153,16 +154,16 @@ export default {
           text: 'Documentation',
           model: false,
           children: [
-            { text: 'Overview', link:'Documentation' },
-            { text: 'Installation' },
-            { text: 'Dashboard' },
-            { text: 'Customers' },
-            { text: 'Sales' },
-            { text: 'Expenses' },
-            { text: 'Sales Graph of this month' },
-            { text: 'Leads' },
-            { text: 'Live Chat' },
-            { text: 'Settings' }
+            { text: 'Overview', link:'Documentation'},
+            { text: 'Installation', link:'InstallationDoc' },
+            { text: 'Dashboard', link:'DashboardDoc'},
+            { text: 'Customers', link:'CustomersDoc'},
+            { text: 'Sales', link:'SalesDoc'},
+            { text: 'Expenses' , link:'ExpenseDoc'},
+            { text: 'Sales Graph of this month', link:'GraphDoc'},
+            { text: 'Leads', link:'LeadsDoc'},
+            { text: 'Live Chat' , link:'ChatDoc'},
+            { text: 'Settings' , link:'SettingsDoc'}
           ]
          },
         ],
@@ -174,6 +175,14 @@ export default {
         .then((user)=>{
           this.$router.replace('/')
         });
+      }
+  },
+  created(){
+      var user = firebase.auth().currentUser;
+      if (user) {
+        this.userLoggedin = true;
+      } else {
+        this.userLoggedin = false;
       }
   }
 }

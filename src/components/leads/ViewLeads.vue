@@ -74,19 +74,7 @@
               </v-card>
 
             </v-flex>
-        </v-container>
-
-        <!-- Add Expense Button  -->
-        <v-btn :to="{name: 'AddLeads'}"
-          fab
-          bottom
-          right
-          color="indigo"
-          dark
-          fixed
-        >
-        <v-icon>add</v-icon>
-        </v-btn>
+        </v-container>      
 
       </v-content>
     </div>

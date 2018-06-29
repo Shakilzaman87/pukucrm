@@ -34,6 +34,15 @@ import AdminSupportMessage from '@/components/support/AdminSupportMessage'
 import Settings from '@/components/settings/Settings'
 //Documentation
 import Documentation from '@/components/documentation/Documentation'
+import InstallationDoc from '@/components/documentation/InstallationDoc'
+import DashboardDoc from '@/components/documentation/DashboardDoc'
+import CustomersDoc from '@/components/documentation/CustomersDoc'
+import SalesDoc from '@/components/documentation/SalesDoc'
+import ExpenseDoc from '@/components/documentation/ExpenseDoc'
+import GraphDoc from '@/components/documentation/GraphDoc'
+import LeadsDoc from '@/components/documentation/LeadsDoc'
+import ChatDoc from '@/components/documentation/ChatDoc'
+import SettingsDoc from '@/components/documentation/SettingsDoc'
 
 
 import firebase from 'firebase'
@@ -234,6 +243,52 @@ const router = new Router({
       name: 'Documentation',
       component: Documentation
     },
+    {
+      path: '/installationdoc',
+      name: 'InstallationDoc',
+      component: InstallationDoc
+    },
+    {
+      path: '/dashboarddoc',
+      name: 'DashboardDoc',
+      component: DashboardDoc
+    },
+    {
+      path: '/customersdoc',
+      name: 'CustomersDoc',
+      component: CustomersDoc
+    },
+    {
+      path: '/salesdoc',
+      name: 'SalesDoc',
+      component: SalesDoc
+    },
+    {
+      path: '/expensedoc',
+      name: 'ExpenseDoc',
+      component: ExpenseDoc
+    },
+    {
+      path: '/graphdoc',
+      name: 'GraphDoc',
+      component: GraphDoc
+    },
+    {
+      path: '/leadsdoc',
+      name: 'LeadsDoc',
+      component: LeadsDoc
+    },
+    {
+      path: '/chatdoc',
+      name: 'ChatDoc',
+      component: ChatDoc
+    },
+    {
+      path: '/settingsdoc',
+      name: 'SettingsDoc',
+      component: SettingsDoc
+    },
+
 
   ]
 })

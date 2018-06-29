@@ -23,8 +23,6 @@
                 <v-btn large color="primary" class="mx-0">Live Chat</v-btn><br>
                 <v-btn large color="primary" class="mx-0">Settings</v-btn><br>
 
-
-                <img src="./../../assets/1.png">
               </v-flex>
             </v-layout>
           </v-container>
