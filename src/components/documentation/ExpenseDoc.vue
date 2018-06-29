@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Expenses</h3>
+                <h1>Expenses</h1>
                 <p>Collection of all Expenses</p>
                 <v-divider class="my-3"></v-divider>
 

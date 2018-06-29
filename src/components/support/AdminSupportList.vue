@@ -17,8 +17,8 @@
             <td class="text-xs-right">
               <router-link :to="{ name: 'AdminSupportMessage', params: {id:props.item.sender_id} }">{{props.item.name}}</router-link>
             </td>
-            <td class="text-xs-right">{{ props.item.subject }}</td>
-            <td class="text-xs-right">{{ props.item.time }}</td>
+            <td class="text-xs-left">{{ props.item.subject }}</td>
+            <td class="text-xs-left">{{ props.item.time }}</td>
 
             <v-btn fab dark small color="pink" @click="removeGuest(props.item.id)">
                <v-icon dark>remove</v-icon>

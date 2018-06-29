@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Puku CRM</h3>
+                <h1>Puku CRM</h1>
                 <span class="subheading">
                   Puku CRM is an online based Customer Relationship Management software that is<br>
                   perfectly fit for any kind of business, company, freelancers or any business<br>

@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Sales</h3>
+                <h1>Sales</h1>
                 <p>Collection of all Sales</p>
                 <v-divider class="my-3"></v-divider>
 

@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Dashboard</h3>
+                <h1>Dashboard</h1>
                 <p>Dashboard is a summary of the Puku CRM.</p>
                 <v-divider class="my-3"></v-divider>
                 <img width="100%" src="./../../assets/documentation/dashboard.png"><br>

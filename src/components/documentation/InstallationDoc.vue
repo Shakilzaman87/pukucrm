@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Installation</h3>
+                <h1>Installation</h1>
                 <p>Install Puku CRM in your server</p>
                 <v-divider class="my-3"></v-divider>
                 <h3>Free Installation</h3>

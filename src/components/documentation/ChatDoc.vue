@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Live Chat</h3>
+                <h1>Live Chat</h1>
                 <p>Customer Support with multiple visitors</p>
                 <v-divider class="my-3"></v-divider>
                 <h3>Chat Link for visitors</h3>

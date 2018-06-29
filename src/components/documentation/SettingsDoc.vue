@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Settings</h3>
+                <h1>Settings</h1>
                 <p>Settings of Puku CRM</p>
                 <v-divider class="my-3"></v-divider>
                 <h3>Change Password</h3>

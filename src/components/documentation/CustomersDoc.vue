@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Customers</h3>
+                <h1>Customers</h1>
                 <p>Collection of all customers with their information and updates</p>
                 <v-divider class="my-3"></v-divider>
 
@@ -29,7 +29,7 @@
                 <img src="./../../assets/documentation/customer-report.png"><br>
                 <p>This is a complete view of an individual customer.<br>
                   Also You can add customer's update here. Any type of dealing, to do, or <br>
-                  dealing story you can write down here. 
+                  dealing story you can write down here.
                 </p>
               </v-flex>
             </v-layout>

@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Sales graph of this month</h3>
+                <h1>Sales graph of this month</h1>
                 <p>Overview of sales in current month</p>
                 <v-divider class="my-3"></v-divider>
                 <p>

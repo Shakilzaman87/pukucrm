@@ -6,7 +6,7 @@
           <v-container>
             <v-layout align-center>
               <v-flex>
-                <h3 class="display-1">Leads</h3>
+                <h1>Leads</h1>
                 <p>Collection of all Leads (Not Customer yet but interested)</p>
                 <v-divider class="my-3"></v-divider>
 
