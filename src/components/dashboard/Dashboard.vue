@@ -93,9 +93,9 @@
                   class="elevation-1"
                 >
                   <template slot="items" slot-scope="props">
-                    <td class="text-xs-right">{{ props.item.name }}</td>
-                    <td class="text-xs-right">{{ props.item.text }}</td>
-                    <td class="text-xs-right">{{ props.item.timestamp }} ago</td>
+                    <td class="text-xs-left">{{ props.item.name }}</td>
+                    <td class="text-xs-left">{{ props.item.text }}</td>
+                    <td class="text-xs-left">{{ props.item.timestamp }} ago</td>
                   </template>
                 </v-data-table>
               </v-flex>
@@ -113,9 +113,9 @@
                   class="elevation-1"
                 >
                   <template slot="items" slot-scope="props">
-                    <td class="text-xs-right">{{ props.item.name }}</td>
-                    <td class="text-xs-right">{{ props.item.text }}</td>
-                    <td class="text-xs-right">{{ props.item.timestamp }} ago</td>
+                    <td class="text-xs-left">{{ props.item.name }}</td>
+                    <td class="text-xs-left">{{ props.item.text }}</td>
+                    <td class="text-xs-left">{{ props.item.timestamp }} ago</td>
                   </template>
                 </v-data-table>
               </v-flex>

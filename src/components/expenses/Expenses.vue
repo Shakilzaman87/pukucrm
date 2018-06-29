@@ -25,10 +25,10 @@
           class="elevation-1"
         >
           <template slot="items" slot-scope="props">
-            <td class="text-xs-right">{{ props.item.expense_title }}</td>
-            <td class="text-xs-right">{{ props.item.expense_amount }} {{currency}}</td>
-            <td class="text-xs-right"><span v-if='props.item.expense_type'>{{ props.item.expense_type.text }}</span></td>
-            <td class="text-xs-right">{{ props.item.timestamp }}</td>
+            <td class="text-xs-left">{{ props.item.expense_title }}</td>
+            <td class="text-xs-left">{{ props.item.expense_amount }} {{currency}}</td>
+            <td class="text-xs-left"><span v-if='props.item.expense_type'>{{ props.item.expense_type.text }}</span></td>
+            <td class="text-xs-left">{{ props.item.timestamp }}</td>
             <v-btn fab dark small color="cyan" :to="{name: 'EditExpense', params: {id:props.item.id}}">
                <v-icon dark>edit</v-icon>
             </v-btn>
@@ -124,9 +124,6 @@ export default {
 </script>
 
 <style>
-.text-xs-right{
-  text-align: left !important;
-}
 td{
   text-align: center;
 }

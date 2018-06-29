@@ -22,12 +22,12 @@
     >
       <template slot="items" slot-scope="props">
 
-        <td class="text-xs-right"><router-link :to="{ name: 'ViewCustomer', params: {id:props.item.id} }">{{props.item.customer_name}}</router-link></td>
-        <td class="text-xs-right">{{ props.item.email }}</td>
-        <td class="text-xs-right">{{ props.item.phone }}</td>
-        <td class="text-xs-right">{{ props.item.company }}</td>
-        <td class="text-xs-right">{{ props.item.designation }}</td>
-        <td class="text-xs-right">{{ props.item.timestamp }}</td>
+        <td class="text-xs-left"><router-link :to="{ name: 'ViewCustomer', params: {id:props.item.id} }">{{props.item.customer_name}}</router-link></td>
+        <td class="text-xs-left">{{ props.item.email }}</td>
+        <td class="text-xs-left">{{ props.item.phone }}</td>
+        <td class="text-xs-left">{{ props.item.company }}</td>
+        <td class="text-xs-left">{{ props.item.designation }}</td>
+        <td class="text-xs-left">{{ props.item.timestamp }}</td>
         <v-btn fab dark small color="cyan" :to="{name: 'EditCustomer', params: {id:props.item.id}}">
            <v-icon dark>edit</v-icon>
         </v-btn>

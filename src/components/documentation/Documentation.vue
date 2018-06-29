@@ -14,14 +14,15 @@
                 </span>
                 <v-divider class="my-3"></v-divider>
                 <div class="title mb-3">Documentation</div>
-                <v-btn large color="primary" class="mx-0">Installation</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Dashboard</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Customers</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Sales</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Sales Graph of this Month</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Leads</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Live Chat</v-btn><br>
-                <v-btn large color="primary" class="mx-0">Settings</v-btn><br>
+                <v-btn :to="{name: 'InstallationDoc'}" large color="primary" class="mx-0">Installation</v-btn><br>
+                <v-btn :to="{name: 'DashboardDoc'}" large color="primary" class="mx-0">Dashboard</v-btn><br>
+                <v-btn :to="{name: 'CustomersDoc'}" large color="primary" class="mx-0">Customers</v-btn><br>
+                <v-btn :to="{name: 'SalesDoc'}" large color="primary" class="mx-0">Sales</v-btn><br>
+                <v-btn :to="{name: 'ExpenseDoc'}" large color="primary" class="mx-0">Expenses</v-btn><br>
+                <v-btn :to="{name: 'GraphDoc'}" large color="primary" class="mx-0">Sales Graph of this Month</v-btn><br>
+                <v-btn :to="{name: 'LeadsDoc'}" large color="primary" class="mx-0">Leads</v-btn><br>
+                <v-btn :to="{name: 'ChatDoc'}" large color="primary" class="mx-0">Live Chat</v-btn><br>
+                <v-btn :to="{name: 'SettingsDoc'}" large color="primary" class="mx-0">Settings</v-btn><br>
 
               </v-flex>
             </v-layout>

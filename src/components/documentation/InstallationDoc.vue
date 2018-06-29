@@ -16,7 +16,7 @@
                   Well if you face any problem to install Puku CRM in your server.<br>
                   We will provide a free installation support for you.<br>
                   Just send us an email. Will contact as soon as possible <br><br>
-                  <b>Support Email: w3schools000gmail.com</b>
+                  <b>Support Email: w3schools000@gmail.com</b>
                 </p>
 
                 <h3 class="display-1">Installation Guide</h3><br>
@@ -48,10 +48,10 @@
                 <img width="50%" src="./../../assets/documentation/database-index-1.png"><br><br>
                 <p>Create index of <b>leadrecords</b> like this</p>
                 <img width="50%" src="./../../assets/documentation/database-index-2.png"><br><br>
-                <p>And create index of <b>supportmessage</b> like this</p>
+                <p>Create index of <b>supportmessage</b> like this</p>
                 <img width="50%" src="./../../assets/documentation/database-index-3.png"><br><br>
-                <p>Finally indexes will look like this</p>
-                <img width="80%" src="./../../assets/documentation/database-index-4.png"><br><br>
+                <p>Create index of <b>supportmessage</b> like this</p>
+                <img width="50%" src="./../../assets/documentation/database-index-5.png"><br><br>
 
                 <br><br><br>
 
@@ -90,6 +90,13 @@
                 <img width="50%" src="./../../assets/documentation/setup.png"><br>
                  Now fill up the setup form and enter to Puku CRM
 
+                <h3>Note</h3>
+                <p>After Setup successfully if you find any problem on URL(url refresh return 404 Not Found)<br>
+                  create a .htaccess file in your root folder and use this code
+                </p>
+                <img src="./../../assets/documentation/htaccess.png"><br>
+                You can get this code here<br>
+                <b> https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations</b><br><br>
                  <h3>Thank you  </h3>
               </v-flex>
             </v-layout>

@@ -25,12 +25,12 @@
           class="elevation-1"
         >
           <template slot="items" slot-scope="props">
-            <td class="text-xs-right">{{ props.item.item_name }}</td>
-            <td class="text-xs-right">{{ props.item.price }} {{currency}}</td>
-            <td class="text-xs-right">{{ props.item.quantity }}</td>
-            <td class="text-xs-right">{{ props.item.customer }}</td>
-            <td class="text-xs-right">{{ props.item.timestamp }}</td>
-            <td class="text-xs-right">{{ props.item.total }} {{currency}}</td>
+            <td class="text-xs-left">{{ props.item.item_name }}</td>
+            <td class="text-xs-left">{{ props.item.price }} {{currency}}</td>
+            <td class="text-xs-left">{{ props.item.quantity }}</td>
+            <td class="text-xs-left">{{ props.item.customer }}</td>
+            <td class="text-xs-left">{{ props.item.timestamp }}</td>
+            <td class="text-xs-left">{{ props.item.total }} {{currency}}</td>
             <v-btn fab dark small color="cyan" :to="{name: 'EditSales', params: {id:props.item.id}}">
                <v-icon dark>edit</v-icon>
             </v-btn>
