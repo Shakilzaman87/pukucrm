@@ -33,6 +33,7 @@
                     placeholder="New Password"
                     v-model="newPassword"
                     type="password"
+                    disabled
                   ></v-text-field>
                 </v-layout>
               </v-flex>

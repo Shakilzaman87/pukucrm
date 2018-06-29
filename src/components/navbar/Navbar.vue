@@ -37,6 +37,7 @@
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
+
             <v-list-tile
               v-for="(child, i) in item.children"
               :key="i"
@@ -64,13 +65,16 @@
               </v-icon>
               </router-link>
             </v-list-tile-action>
+
+            <router-link :to="{ name: item.link, params: {} }" style="color:rgba(0,0,0,.87)">
             <v-list-tile-content>
               <v-list-tile-title>
-                <router-link :to="{ name: item.link, params: {} }" style="color:rgba(0,0,0,.87)">
+
                 {{ item.text }}
-                </router-link>
+
               </v-list-tile-title>
             </v-list-tile-content>
+            </router-link>
           </v-list-tile>
 
 
@@ -192,5 +196,8 @@ export default {
 a{
     text-decoration: none;
     color: red;
+}
+.theme--light .list .list__tile--link:hover {
+    background: none !important; 
 }
 </style>

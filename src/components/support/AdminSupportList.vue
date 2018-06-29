@@ -14,7 +14,7 @@
           class="elevation-1"
         >
           <template slot="items" slot-scope="props">
-            <td class="text-xs-right">
+            <td class="text-xs-left">
               <router-link :to="{ name: 'AdminSupportMessage', params: {id:props.item.sender_id} }">{{props.item.name}}</router-link>
             </td>
             <td class="text-xs-left">{{ props.item.subject }}</td>

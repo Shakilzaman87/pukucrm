@@ -17,7 +17,7 @@
               <v-flex xs10 align-center justify-space-between>
                 <v-layout align-center>
                   <v-text-field
-                    prepend-icon="local_florist"
+                    prepend-icon="shopping_cart"
                     placeholder="Item Name"
                     required
                     v-model="sales.item_name"
@@ -41,7 +41,7 @@
                 <v-layout align-center>
                   <v-text-field
                     type="number"
-                    prepend-icon="shopping_cart"
+                    prepend-icon="note_add"
                     placeholder="Quantity"
                     required
                     v-model="sales.quantity"
