@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
       <Navbar/>
     <div>
       <ShowCustomers/>

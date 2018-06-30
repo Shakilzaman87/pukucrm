@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
       <Navbar/>
       <v-content>
 
@@ -28,7 +27,7 @@
                 <v-text-field
                   type="email"
                   prepend-icon="mail"
-                  placeholder="Email"                
+                  placeholder="Email"
                   v-model="customer.email"
                 ></v-text-field>
               </v-flex>
@@ -114,7 +113,6 @@
 
         </v-card>
         </form>
-
 
       </v-content>
   </v-app>

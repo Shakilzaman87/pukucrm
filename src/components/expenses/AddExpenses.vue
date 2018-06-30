@@ -51,13 +51,11 @@
                 <v-btn type="submit" block color="primary" dark>Add Expense</v-btn>
               </v-flex>
 
-
             </v-layout>
           </v-container>
 
         </v-card>
         </form>
-
 
       </v-content>
   </v-app>

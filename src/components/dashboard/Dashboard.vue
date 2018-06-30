@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
       <Navbar/>
     <div>
       <v-content>
@@ -287,7 +286,6 @@ export default {
   margin-bottom: 15px;
   word-break: break-all;
 }
-
 .text-xs-right{
   text-align: left !important;
 }

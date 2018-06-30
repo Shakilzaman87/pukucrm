@@ -15,9 +15,7 @@ Vue.use(VueChatScroll)
 
 Vue.config.productionTip = false
 
-// Chart
-
-
+// Vue app init after auth state change
 import firebase from 'firebase'
 let app;
 

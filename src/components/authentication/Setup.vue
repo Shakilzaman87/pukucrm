@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <!-- Setup In area -->
     <div v-if="setup == false">
       <v-container>
@@ -143,7 +142,6 @@ export default {
         }
       }
     },
-
     methods: {
         setupPuku(){
             // If password matched
@@ -190,12 +188,9 @@ export default {
                   self.setup = false
               }
             })
-
     }
 }
 </script>
-
-
 
 <style>
 .display-1{

@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
       <Navbar/>
     <div>
 
@@ -166,7 +165,6 @@ export default {
             this.customer.id = doc.id
           })
 
-
          // Show All customer Records
          let ref = db.collection('customerrecords').where("id","==",this.$route.params.id).orderBy('timestamp', 'asc');
 
@@ -182,10 +180,7 @@ export default {
              }
            })
          })
-
-
   }
-
 
 }
 </script>
@@ -196,5 +191,4 @@ tbody a{
   color:black;
   text-decoration: underline;
 }
-
 </style>
