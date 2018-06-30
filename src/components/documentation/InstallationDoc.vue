@@ -19,7 +19,7 @@
                   <b>Support Email: w3schools000@gmail.com</b>
                 </p>
 
-                <h3 class="display-1">Installation Guide</h3><br>
+                <h1>Installation Guide</h1><br>
                 <h3>Step 1: Create Firebase Account </h3>
                 <p>Puku CRM is a firebase based software. So first of all you have to create a Firebase account<br>
                   Login your Gmail account and then go to this link <br>

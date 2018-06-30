@@ -98,7 +98,7 @@
                </v-flex>
 
                <v-flex xs10>
-                <v-btn type="submit" block color="primary" dark>Add Customer</v-btn>
+                <v-btn type="submit" block color="primary" dark>Update Leads</v-btn>
                 </v-flex>
 
 
@@ -116,6 +116,7 @@
 <script>
 import Navbar from '@/components/navbar/Navbar'
 import db from '@/firebase/init'
+import moment from 'moment'
 export default {
   name:'AddLeads',
   components:{
@@ -197,6 +198,7 @@ export default {
               source:this.lead.source,
               rating:this.rating,
               details:this.details,
+              created_month:moment().format('MM-YYYY'),
               timestamp:Date.now()
               })
           }

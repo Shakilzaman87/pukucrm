@@ -49,7 +49,7 @@
               </v-flex>
 
               <v-flex xs10>
-                <v-btn type="submit" block color="primary" dark>Edit Expense</v-btn>
+                <v-btn type="submit" block color="primary" dark>Update Expense</v-btn>
               </v-flex>
 
 

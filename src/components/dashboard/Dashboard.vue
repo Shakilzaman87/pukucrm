@@ -18,7 +18,7 @@
                   <v-card-title primary-title>
                     <div class="headline">Customers</div>
                     <div>
-                      <span>Customers of this month : {{customer_of_this_month}} </span><br>
+                      <span>Customers this month : {{customer_of_this_month}} </span><br>
                       <span>Total Customers: {{customer_total}}</span>
                     </div>
                   </v-card-title>
@@ -33,7 +33,7 @@
                   <v-card-title primary-title>
                     <div class="headline">Sales</div>
                     <div>
-                      <span>Sales of this month : {{sales_of_this_month}} {{currency}}</span><br>
+                      <span>Sales this month : {{sales_of_this_month}} {{currency}}</span><br>
                       <span>Total Sales: {{sales_total}} {{currency}}</span>
                     </div>
                   </v-card-title>
@@ -48,7 +48,7 @@
                   <v-card-title primary-title>
                     <div class="headline">Expenses</div>
                     <div>
-                      <span>Expenses of this month : {{expenses_of_this_month}} {{currency}}</span><br>
+                      <span>Expense this month : {{expenses_of_this_month}} {{currency}}</span><br>
                       <span>Total Expense: {{ expenses_total }} {{currency}}</span>
                     </div>
                   </v-card-title>
@@ -63,7 +63,7 @@
                   <v-card-title primary-title>
                     <div class="headline">Leads</div>
                     <div>
-                      <span>Leads of this month : {{leads_of_this_month}} </span><br>
+                      <span>Leads this month : {{leads_of_this_month}} </span><br>
                       <span>Total Leads: {{leads_total}} </span>
                     </div>
                   </v-card-title>
@@ -262,14 +262,14 @@ export default {
                this.expenses_total = totalExpneses;
           })
 
-          // Total Customers of this Month
+          // Total Leads of this Month
           db.collection('leads').where("created_month", "==", moment().format('MM-YYYY'))
          .get()
          .then(snapshot => {
                this.leads_of_this_month = snapshot.size;
           })
 
-          // Total Customers
+          // Total Leads
           db.collection('leads')
          .get()
          .then(snapshot => {

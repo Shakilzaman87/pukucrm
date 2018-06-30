@@ -65,7 +65,7 @@
               </v-flex>
 
               <v-flex xs10>
-                <v-btn type="submit" block color="primary" dark>Edit Sales</v-btn>
+                <v-btn type="submit" block color="primary" dark>Update Sales</v-btn>
               </v-flex>
 
             </v-layout>
