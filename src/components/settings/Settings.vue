@@ -13,29 +13,25 @@
 
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
-            <v-layout row wrap>
+
 
               <v-flex xs10 align-center justify-space-between>
-                <v-layout align-center>
                   <v-text-field
                     prepend-icon="email"
                     placeholder="Email"
                     v-model="userCurrentEmail"
                     disabled
                   ></v-text-field>
-                </v-layout>
               </v-flex>
 
               <v-flex xs10 align-center justify-space-between>
-                <v-layout align-center>
                   <v-text-field
                     prepend-icon="vpn_key"
                     placeholder="New Password"
                     v-model="newPassword"
                     type="password"
                     disabled
-                  ></v-text-field>
-                </v-layout>
+                  ></v-text-field>                
               </v-flex>
 
 
@@ -44,7 +40,7 @@
               </v-flex>
               <p class="feedback-successful" v-if="passowrdFeedback">{{passowrdFeedback}}</p>
 
-            </v-layout>
+
           </v-container>
 
         </v-card>
