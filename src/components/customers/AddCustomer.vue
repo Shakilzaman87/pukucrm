@@ -5,11 +5,7 @@
 
         <form @submit.prevent="addNewCustomer">
         <v-card>
-          <v-card-title
-            class="grey lighten-4 py-4 center"
-          >
-            <h2>Add Customer's Information</h2>
-          </v-card-title>
+        
           <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
 
@@ -119,7 +115,7 @@
 
         </v-card>
         </form>
-        
+
       </v-content>
   </v-app>
 </template>
@@ -205,15 +201,5 @@ export default {
 </script>
 
 <style>
-form{
-  margin-left: 12%;
-}
-h2{
-  font-weight: lighter;
-  margin-left: 5%;
-  color: rgba(0,0,0,.54);
-}
-input::placeholder{
-  color: rgba(0,0,0,.87);
-}
+
 </style>

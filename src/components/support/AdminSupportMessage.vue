@@ -101,22 +101,12 @@ export default {
 </script>
 
 <style>
-tbody a{
-  font-size: 13px;
-  color:black;
-  text-decoration: underline;
-}
-form{
-  margin-left: 15%;
-}
 
 .message-box{
-  margin-top: 50px;
-  margin-left: 15%;
   max-height: 300px;
   overflow: auto;
   border: 1px solid rgba(0,0,0,.20);
-  width: 500px;
+  width: 100%;
 }
 .message-box::-webkit-scrollbar{
   width: 3px;

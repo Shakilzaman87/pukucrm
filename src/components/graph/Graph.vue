@@ -91,7 +91,7 @@ import moment from 'moment'
       }, 1000)
 
       // 1 Start
-      let date1 = moment().format('1-MM-YYYY');
+      let date1 = moment().format('01-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date1)
      .get()
      .then(snapshot => {
@@ -102,7 +102,7 @@ import moment from 'moment'
            this.sales_day_1 = total1;
 
       // 2 Start
-      let date2 = moment().format('2-MM-YYYY');
+      let date2 = moment().format('02-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date2)
      .get()
      .then(snapshot => {
@@ -113,7 +113,7 @@ import moment from 'moment'
            this.sales_day_2 = total2;
 
       // 3 Start
-      let date3 = moment().format('3-MM-YYYY');
+      let date3 = moment().format('03-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date3)
      .get()
      .then(snapshot => {
@@ -124,7 +124,7 @@ import moment from 'moment'
            this.sales_day_3 = total3;
 
       // 4 Start
-      let date4 = moment().format('4-MM-YYYY');
+      let date4 = moment().format('04-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date4)
      .get()
      .then(snapshot => {
@@ -135,7 +135,7 @@ import moment from 'moment'
            this.sales_day_4 = total4;
 
       // 5 Start
-      let date5 = moment().format('5-MM-YYYY');
+      let date5 = moment().format('05-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date5)
      .get()
      .then(snapshot => {
@@ -146,7 +146,7 @@ import moment from 'moment'
            this.sales_day_5 = total5;
 
       // 6 Start
-      let date6 = moment().format('6-MM-YYYY');
+      let date6 = moment().format('06-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date6)
      .get()
      .then(snapshot => {
@@ -157,7 +157,7 @@ import moment from 'moment'
            this.sales_day_6 = total6;
 
       // 7 Start
-      let date7 = moment().format('7-MM-YYYY');
+      let date7 = moment().format('07-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date7)
      .get()
      .then(snapshot => {
@@ -168,7 +168,7 @@ import moment from 'moment'
            this.sales_day_7 = total7;
 
       // 8 Start
-      let date8 = moment().format('8-MM-YYYY');
+      let date8 = moment().format('08-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date8)
      .get()
      .then(snapshot => {
@@ -179,7 +179,7 @@ import moment from 'moment'
            this.sales_day_8 = total8;
 
       // 9 Start
-      let date9 = moment().format('9-MM-YYYY');
+      let date9 = moment().format('09-MM-YYYY');
       db.collection('sales').where("sales_date", "==", date9)
      .get()
      .then(snapshot => {

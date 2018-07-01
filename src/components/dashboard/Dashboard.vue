@@ -15,10 +15,10 @@
               <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
-                    <div class="headline">Customers</div>
+                    <h1>Customers</h1>
                     <div>
-                      <span>Customers this month : {{customer_of_this_month}} </span><br>
-                      <span>Total Customers: {{customer_total}}</span>
+                      <h4>Customers this month : {{customer_of_this_month}} </h4>
+                      <h4>Total Customers: {{customer_total}}</h4>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -30,10 +30,10 @@
               <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
-                    <div class="headline">Sales</div>
+                    <h1>Sales</h1>
                     <div>
-                      <span>Sales this month : {{sales_of_this_month}} {{currency}}</span><br>
-                      <span>Total Sales: {{sales_total}} {{currency}}</span>
+                      <h4>Sales this month : {{sales_of_this_month}} {{currency}}</h4>
+                      <h4>Total Sales: {{sales_total}} {{currency}}</h4>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -45,10 +45,10 @@
               <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
-                    <div class="headline">Expenses</div>
+                    <h1>Expenses</h1>
                     <div>
-                      <span>Expense this month : {{expenses_of_this_month}} {{currency}}</span><br>
-                      <span>Total Expense: {{ expenses_total }} {{currency}}</span>
+                      <h4>Expense this month : {{expenses_of_this_month}} {{currency}}</h4>
+                      <h4>Total Expense: {{ expenses_total }} {{currency}}</h4>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -60,10 +60,10 @@
               <v-flex lg3>
                 <v-card color="primary" class="white--text">
                   <v-card-title primary-title>
-                    <div class="headline">Leads</div>
+                    <h1>Leads</h1>
                     <div>
-                      <span>Leads this month : {{leads_of_this_month}} </span><br>
-                      <span>Total Leads: {{leads_total}} </span>
+                      <h4>Leads this month : {{leads_of_this_month}} </h4>
+                      <h4>Total Leads: {{leads_total}} </h4>
                     </div>
                   </v-card-title>
                   <v-card-actions>
@@ -75,13 +75,11 @@
             </v-layout>
           </v-container>
         </v-card>
-      </v-content>
 
-      <v-content>
         <v-container>
           <v-layout row wrap>
               <v-flex lg6>
-                <h4>Customer Updates</h4>
+                <h4 class="updates-heading">Customer Updates</h4>
                 <v-data-table
                   :headers="customerHeaders"
                   :items="customerrecords"
@@ -101,7 +99,7 @@
 
 
               <v-flex lg6>
-                <h4>Lead Updates</h4>
+                <h4 class="updates-heading">Lead Updates</h4>
                 <v-data-table
                   :headers="leadHeaders"
                   :items="leadrecords"
@@ -281,16 +279,14 @@ export default {
 </script>
 
 <style>
-.headline{
+h1{
   width: 100%;
-  margin-bottom: 15px;
-  word-break: break-all;
 }
-.text-xs-right{
-  text-align: left !important;
+h4{
+  width: 100%;
 }
-td{
-  text-align: center;
+.updates-heading{
+  margin-left: 25px;
 }
 
 </style>

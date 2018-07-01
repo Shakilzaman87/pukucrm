@@ -6,11 +6,7 @@
 
         <form @submit.prevent="addNewLeads">
         <v-card>
-          <v-card-title
-            class="grey lighten-4 py-4 center"
-          >
-            <h2>Add Leads Information</h2>
-          </v-card-title>
+
           <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
 
@@ -75,9 +71,11 @@
                 <v-select
                   prepend-icon="account_box"
                   :items="allstatus"
+                  item-value="New"
                   v-model="status"
                   label="Status"
                   single-line
+                  required
                 ></v-select>
               </v-flex>
 
@@ -90,7 +88,7 @@
                </v-flex>
 
                <v-flex xs10>
-                <v-btn type="submit" block color="primary" dark>Add Customer</v-btn>
+                <v-btn type="submit" block color="primary" dark>Add Leads</v-btn>
                 </v-flex>
 
 
@@ -99,7 +97,6 @@
 
         </v-card>
         </form>
-
 
       </v-content>
   </v-app>
@@ -140,7 +137,7 @@ export default {
       rating:null,
       details:null,
       feedback:null,
-      status:null,
+      status:"New",
     }
   },
   methods:{
@@ -179,15 +176,5 @@ export default {
 </script>
 
 <style>
-form{
-  margin-left: 12%;
-}
-h2{
-  font-weight: lighter;
-  margin-left: 5%;
-  color: rgba(0,0,0,.54);
-}
-input::placeholder{
-  color: rgba(0,0,0,.87);
-}
+
 </style>

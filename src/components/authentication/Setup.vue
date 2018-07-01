@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- Setup In area -->
-    <div v-if="setup == false">
+    <div v-if="setup == false" class="setup">
       <v-container>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
@@ -9,7 +9,7 @@
               <v-card>
                 <v-card-text>
                   <v-container>
-                    <h4 class="display-1">Puku CRM Setup</h4>
+                    <h1>Puku CRM Setup</h1>
 
                     <form @submit.prevent="setupPuku">
 
@@ -72,7 +72,7 @@
 
 
     <!-- Sign In area -->
-    <div v-if="setup == true">
+    <div v-if="setup == true" class="sign-in">
       <v-container >
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
@@ -80,7 +80,7 @@
               <v-card>
                 <v-card-text>
                   <v-container>
-                    <h4 class="display-2">Puku CRM</h4>
+                    <h1>Puku CRM</h1>
 
                     <form @submit.prevent="signIn">
 
@@ -136,8 +136,8 @@ export default {
         errorMessage:null,
         feedback:'',
         formData:{
-            email:'',
-            password:'',
+            email:'puku@gmail.com',
+            password:'123456',
             currency:'',
         }
       }
@@ -193,15 +193,13 @@ export default {
 </script>
 
 <style>
-.display-1{
-  text-align: center;
-  margin-top: 50px;
+.setup{
+  margin-top:10%;
   color:#1976d2 !important;
 }
 
-.display-2{
-  text-align: center;
-  margin-top: 140px;
+.sign-in{
+  margin-top:10%;
   color:#1976d2 !important;
 }
 .feedback-error{

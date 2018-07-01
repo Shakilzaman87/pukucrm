@@ -9,7 +9,7 @@
           <v-card-title
             class="grey lighten-4 py-4 center"
           >
-            <h2>Change Password</h2>
+          <h4>Update Password</h4>
 
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
@@ -55,7 +55,7 @@
           <v-card-title
             class="grey lighten-4 py-4 center"
           >
-          <h2>Change Currency</h2>
+          <h4>Update Currency</h4>
 
           </v-card-title>
           <v-container grid-list-sm class="pa-4">
@@ -156,4 +156,8 @@ export default {
   color: green;
   text-align: center;
 }
+h4{
+  margin-left: 1%;
+}
+
 </style>

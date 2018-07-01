@@ -34,14 +34,14 @@
                 <img width="50%" src="./../../assets/documentation/firebase-dashboard.png"><br><br>
                 <p>Click on <b>Add Firebase to your web app</b> And copy this code</p>
                 <img width="50%" src="./../../assets/documentation/firebase-code.png"><br><br>
-                <p>Now click on database to setup Firestore</p>
-                <img width="50%" src="./../../assets/documentation/firebase-database.png"><br><br>
-                <p>Change Rules like this</p>
-                <img width="50%" src="./../../assets/documentation/database-rules.png"><br><br>
                 <p>Setup Authentication</p>
                 <img width="50%" src="./../../assets/documentation/auth.png"><br><br>
                 <p>Enable Email/Password Method</p>
                 <img width="70%" src="./../../assets/documentation/auth2.png"><br><br>
+                <p>Now click on database to setup Firestore</p>
+                <img width="50%" src="./../../assets/documentation/firebase-database.png"><br><br>
+                <p>Change Rules like this</p>
+                <img width="50%" src="./../../assets/documentation/database-rules.png"><br><br>
                 <p>Go to Indexes and Setup Index Manually</p>
                 <img width="70%" src="./../../assets/documentation/database-index.png"><br><br>
                 <p>Create index of <b>customerrecords</b> like this</p>
@@ -59,7 +59,6 @@
                 <p>
                   After purchasing Puku CRM you will get files like this. Now go to this file <br>
                   <b>src/firebase/init.js</b>
-
                 </p>
                 <img  src="./../../assets/documentation/puku-files.png"><br>
                 <p>Into the <b>init.js</b> paste the code here</p>
